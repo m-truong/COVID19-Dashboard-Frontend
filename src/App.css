@@ -1,6 +1,19 @@
 * {
+  /* adds margin outside container */
   margin: 0; 
+  /* adds padding inside container */
   padding: 0; 
   box-sizing: border-box;
   background-color: whitesmoke;
+  /* color: black; */
+}
+
+.app__header {
+  display: flex;
+  /* spaces out elements */
+  justify-content: space-between;
+  /* centers elements */
+  align-items: center;
+  /* adds margin below */
+  margin-bottom: 20px;
 }
