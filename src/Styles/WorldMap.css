@@ -1,4 +1,15 @@
-.map-container--styles {
-    /* needs height for map container to render */
+.map {
+    /* needs height for MapContainer to render */
     height: 500px;
+    background-color: ghostwhite;
+    padding: 1rem;
+    border-radius: 20px;
+    /* adds margin above MapContainer */
+    margin-top: 3rem;
+    box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5)
+}
+
+.map-container--styles {
+    height: 100%;
+    border-radius: 20px;
 }
