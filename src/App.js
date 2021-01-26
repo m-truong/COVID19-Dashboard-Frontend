@@ -14,10 +14,17 @@ function App() {
   // keeps track of currently selected country to display appropriate COVID data
   // default 1st option
   const [countries, setCountries] = useState([])
+  // changes dropdown menu option
   const [selectCountry, setSelectCountry] = useState("worldwide")
+  // changes stat-card information based on selected country
   const [displayCountry, setDisplayCountry] = useState({})
   const [tableData, setTableData] = useState([])
 
+  // MapState Focus changes when selectCountry state changes 
+  const [mapCountryFocus, setMapCountryFocus] = useState({ lat: 34.80746, lng: -40.4796 })
+  // changes MapZoom
+  const [mapZoom, setMapZoom] = useState(2);
+  
   // total number of covid cases
   const fetchAll = async () => {
     try {
@@ -74,6 +81,14 @@ function App() {
     setSelectCountry(countryAbbrev)
     // sets entire country object data (Not Cleaned Yet Though!)
     setDisplayCountry(response.data)
+    // Changes the initial 'lat' and 'long' of mapCountryFocus
+    // which is passed down into WorldMap component to change MapContainer 
+    // 'center' attribute
+    // ** Not Working ** //
+    // setMapCountryFocus([response.data.countryInfo.lat, response.data.countryInfo.long])
+    // ** Not Working ** //
+    // setMapZoom(4)
+
     console.log(selectCountry)
   }
 
@@ -116,7 +131,7 @@ function App() {
               total={displayCountry.recovered}
             />
             {/* DeathsCard */}
-            <DataCard 
+            <DataCard
               title="Deaths"
               cases={displayCountry.todayDeaths}
               total={displayCountry.deaths}
@@ -124,7 +139,7 @@ function App() {
           </Box>
 
           {/* COVID-19 World Map */}
-          <WorldMap />
+          <WorldMap mapZoom={mapZoom} mapCountryFocus={mapCountryFocus} />
         </Col>
 
         <Col sm="auto" md={4} className="dashboard__right">
