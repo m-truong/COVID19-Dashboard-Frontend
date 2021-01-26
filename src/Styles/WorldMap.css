@@ -1,0 +1,4 @@
+.map-container--styles {
+    /* needs height for map container to render */
+    height: 500px;
+}
