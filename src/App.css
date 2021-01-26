@@ -4,11 +4,20 @@
   /* adds padding inside container */
   padding: 0; 
   box-sizing: border-box;
-  background-color: whitesmoke;
-  /* color: black; */
 }
 
-.app__header {
+body {
+  /* background: #444 url("covid19_biohazard.jpg") fixed center no-repeat; */
+  /* background-size: cover; */
+}
+
+.dashboard {
+  /* display: flex; */
+  /* justify-content: space-evenly; */
+  padding: 20px;
+}
+
+.dashboard__header {
   display: flex;
   /* spaces out elements */
   justify-content: space-between;
@@ -16,4 +25,9 @@
   align-items: center;
   /* adds margin below */
   margin-bottom: 20px;
+}
+
+.dashboard__stats {
+  display: flex;
+  justify-content: space-between;
 }
