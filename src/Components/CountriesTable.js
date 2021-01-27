@@ -1,5 +1,6 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import '../Styles/CountriesTable.css'
+import numeral from "numeral"
 
 function CountriesTable({ countries }) {
     console.log(countries) // raw data ARRAY-JSON object
@@ -26,7 +27,7 @@ function CountriesTable({ countries }) {
                                 // wrap containing element
                                 <TableRow>
                                     <TableCell>{country}</TableCell>
-                                    <TableCell align="right"><strong>{cases}</strong></TableCell>
+                                    <TableCell align="right"><strong>{numeral(cases).format("0,0")}</strong></TableCell>
                                 </TableRow>
                             )
                         })

@@ -1,0 +1,43 @@
+.map {
+    /* needs height for MapContainer to render */
+    height: 500px;
+    background-color: ghostwhite;
+    padding: 1rem;
+    border-radius: 20px;
+    /* adds margin above MapContainer */
+    margin-top: 3rem;
+    box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5)
+}
+
+.map-container--styles {
+    height: 100%;
+    border-radius: 20px;
+}
+.map__flag img {
+    width: 100px; 
+    border-radius: 5px;
+}
+
+.map__flag {
+    height: 80px;
+    width: 1005;
+    background-size: cover;
+    border-radius: 8px;
+}
+
+.map__popup {
+    width: 150px;
+}
+.map__country {
+    font-size: 20px; 
+    font-weight: bold;
+    color: #555;
+    margin-top: 10px;
+}
+
+.map__confirmed, 
+.map__recovered, 
+.map__deaths {
+    font-size: 1rem;
+    margin-top: 5px;
+}
