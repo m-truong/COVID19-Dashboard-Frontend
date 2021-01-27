@@ -1,5 +1,5 @@
 import "../Styles/WorldMap.css"
-import { Box } from "@material-ui/core"
+import Box from "@material-ui/core/Box"
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet"
 import { showCovidCirclesOnMap } from "../util";
 
@@ -10,7 +10,7 @@ function ChangeMap({ mapZoom, mapCountryFocus }) {
 }
 
 function WorldMap({ mapCovidCircles, casesType, mapZoom, mapCountryFocus }) {
-    console.log(mapCovidCircles)
+    // console.log(mapCovidCircles)
     return (
         <Box className="map">
             <MapContainer

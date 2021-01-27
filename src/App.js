@@ -7,7 +7,6 @@ import { Navbar } from "react-bootstrap"
 
 function App() {
 
-
   return (
     <>
       <Navbar
@@ -17,7 +16,7 @@ function App() {
         expand="lg"
         style={{ background: "white" }}
         // rounded
-        className="shadow p-3 mb-0  justify-content-between"
+        className="shadow p-3 mb-0 justify-content-between"
       >
         <Navbar.Brand href="/">
           <img
@@ -28,8 +27,8 @@ function App() {
             alt="COVID_19_img"
           />
         </Navbar.Brand>
-        <Link className="x-nav-link" to="/coviddashboard">COVID-19 Live Dashboard <i class="fas fa-globe-americas"></i></Link>
-        <Link className="x-nav-link" to="/infovideos">More Information YouTube Videos <i class="fas fa-head-side-cough"></i></Link>
+        <Link className="x-nav-link" to="/coviddashboard">COVID-19 Live Dashboard <i className="fas fa-globe-americas"></i></Link>
+        <Link className="x-nav-link" to="/infovideos">More Information YouTube Videos <i className="fas fa-head-side-cough"></i></Link>
       </Navbar>
       <main>
         <Switch>

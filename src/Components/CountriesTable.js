@@ -3,7 +3,7 @@ import '../Styles/CountriesTable.css'
 import numeral from "numeral"
 
 function CountriesTable({ countries }) {
-    console.log(countries) // raw data ARRAY-JSON object
+    // console.log(countries) // raw data ARRAY-JSON object
     return (
         <TableContainer className="table--styles">
             <Table>
@@ -20,12 +20,12 @@ function CountriesTable({ countries }) {
                 <TableBody>
                     {
                         // maps over every single object
-                        countries.map(({ country, cases }) => {
-                            { console.log(country, cases) }
+                        countries.map(({ country, cases}, idx) => {
+                            // { console.log(country, cases) }
                             // need explicit return
                             return (
                                 // wrap containing element
-                                <TableRow>
+                                <TableRow key={idx}>
                                     <TableCell>{country}</TableCell>
                                     <TableCell align="right"><strong>{numeral(cases).format("0,0")}</strong></TableCell>
                                 </TableRow>

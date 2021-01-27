@@ -47,7 +47,7 @@ function DashboardPage() {
         try {
             const response = await axios.get("https://disease.sh/v3/covid-19/countries")
             // auto parses JSON
-            console.log(response)
+            // console.log(response)
             // get response.data Array[221]
             const countriesAbbrevsClean = response.data.map((countryObj) => (
                 {
@@ -76,7 +76,7 @@ function DashboardPage() {
     // Helper function 
     const onSelectedCountryChange = async (evt) => {
         const countryAbbrev = evt.target.value
-        console.log(countryAbbrev)
+        // console.log(countryAbbrev)
 
         // Conditional-statement to change fetch call
         const covidAPIURL =
@@ -84,7 +84,7 @@ function DashboardPage() {
                 ? `https://disease.sh/v3/covid-19-all`
                 : `https://disease.sh/v3/covid-19/countries/${countryAbbrev}`
         const response = await axios.get(covidAPIURL)
-        console.log(response.data)
+        // console.log(response.data)
         // updates the currently selected country in dropdown menu 
         setSelectCountry(countryAbbrev)
         // sets entire country object data (Not Cleaned Yet Though!)
@@ -97,7 +97,7 @@ function DashboardPage() {
         // ** Not Working ** //
         // setMapZoom(4)
 
-        console.log(selectCountry)
+        // console.log(selectCountry)
     }
     return (
         <Container fluid className="dashboard">

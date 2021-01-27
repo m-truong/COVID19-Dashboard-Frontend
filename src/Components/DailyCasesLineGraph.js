@@ -91,9 +91,9 @@ function DailyCasesLineGraph({ casesType = "cases" }) {
 
     const fetchData = async () => {
         const response = await axios.get("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-        console.log(response.data)
+        // console.log(response.data)
         const chartData = prepareChartData(response.data, casesType)
-        console.log(chartData)
+        // console.log(chartData)
         setHistoricalCases(chartData)
     }
 
