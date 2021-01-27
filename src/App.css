@@ -18,6 +18,8 @@ body {
 }
 
 .dashboard__header {
+  color: crimson;
+  font-size: 1rem;
   display: flex;
   /* spaces out elements */
   justify-content: space-between;
@@ -27,7 +29,15 @@ body {
   margin-bottom: 20px;
 }
 
+.dashboard__dropdown {
+  background-color: white;
+}
+
 .dashboard__stats {
   display: flex;
   justify-content: space-between;
+}
+
+.dashboard__graphTitle{
+  margin-top: 20px;
 }

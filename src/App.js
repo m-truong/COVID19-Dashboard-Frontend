@@ -6,25 +6,30 @@ import { useState, useEffect, useContext } from 'react'
 import DataCard from './Components/DataCard'
 import WorldMap from './Components/WorldMap'
 import CountriesTable from './Components/CountriesTable';
-import { sortCountriesTable } from './util';
+import { sortCountriesTable, numeralFormatStat } from './util';
 import DailyCasesLineGraph from './Components/DailyCasesLineGraph';
-
 
 function App() {
   // keeps track of currently selected country to display appropriate COVID data
   // default 1st option
-  const [countries, setCountries] = useState([])
+  const [countriesDropdownAbbrevs, setCountriesAbbrevs] = useState([])
   // changes dropdown menu option
   const [selectCountry, setSelectCountry] = useState("worldwide")
   // changes stat-card information based on selected country
   const [displayCountry, setDisplayCountry] = useState({})
+  // changes Table state for countries cases
   const [tableData, setTableData] = useState([])
+
+  // state used to pass down COVID cases to draw circles on WorldMap
+  const [mapCovidCircles, setMapCovidCircles] = useState([])
 
   // MapState Focus changes when selectCountry state changes 
   const [mapCountryFocus, setMapCountryFocus] = useState({ lat: 34.80746, lng: -40.4796 })
   // changes MapZoom
   const [mapZoom, setMapZoom] = useState(2);
-  
+
+  const [casesType, setCasesDisplayType] = useState("cases")
+
   // total number of covid cases
   const fetchAll = async () => {
     try {
@@ -42,17 +47,18 @@ function App() {
       // auto parses JSON
       console.log(response)
       // get response.data Array[221]
-      const countriesClean = response.data.map((countryObj) => (
+      const countriesAbbrevsClean = response.data.map((countryObj) => (
         {
           name: countryObj.country,
           abbrev: countryObj.countryInfo.iso2, // USA, FR
         }
       ));
-      const orderedCountries = sortCountriesTable(response.data)
+      setMapCovidCircles(response.data)
       // passing in raw response.data
+      const orderedCountries = sortCountriesTable(response.data)
       setTableData(orderedCountries)
       // changes state
-      setCountries(countriesClean)
+      setCountriesAbbrevs(countriesAbbrevsClean)
     } catch (err) {
       console.error(err);
     }
@@ -106,7 +112,7 @@ function App() {
                 <MenuItem value="worldwide">Worldwide</MenuItem>
                 {/* Loop through all the countries and show a drop down list of all the options */}
                 {
-                  countries.map((country, idx) => (
+                  countriesDropdownAbbrevs.map((country, idx) => (
                     <MenuItem key={idx} value={country.abbrev}>
                       {country.name}
                     </MenuItem>
@@ -120,37 +126,50 @@ function App() {
             {/* CasesCard title="Coronavirus cases"*/}
             {/* pass down as props using React-element props */}
             <DataCard
+              isRed
+              // resolves into boolean
+              active={casesType === "cases"}
+              onClick={(evt) => setCasesDisplayType("cases")}
               title="Coronavirus Cases"
-              cases={displayCountry.todayCases}
-              total={displayCountry.cases}
+              cases={numeralFormatStat(displayCountry.todayCases)}
+              total={numeralFormatStat(displayCountry.cases)}
             />
             {/* RecoveredCard title="Coronavirus recoveries"*/}
             <DataCard
+              active={casesType === "recovered"}
+              onClick={(evt) => setCasesDisplayType("recovered")}
               title="Recovered"
-              cases={displayCountry.todayRecovered}
-              total={displayCountry.recovered}
+              cases={numeralFormatStat(displayCountry.todayRecovered)}
+              total={numeralFormatStat(displayCountry.recovered)}
             />
             {/* DeathsCard */}
             <DataCard
+              isRed
+              active={casesType === "deaths"}
+              onClick={(evt) => setCasesDisplayType("deaths")}
               title="Deaths"
-              cases={displayCountry.todayDeaths}
-              total={displayCountry.deaths}
+              cases={numeralFormatStat(displayCountry.todayDeaths)}
+                total={numeralFormatStat(displayCountry.deaths)}
             />
           </Box>
 
           {/* COVID-19 World Map */}
-          <WorldMap mapZoom={mapZoom} mapCountryFocus={mapCountryFocus} />
+          <WorldMap
+            casesType={casesType}
+            mapCovidCircles={mapCovidCircles}
+            mapZoom={mapZoom} mapCountryFocus={mapCountryFocus}
+          />
         </Col>
 
         <Col sm="auto" md={4} className="dashboard__right">
           <Card>
             <CardContent>
-              <h3>Live Cases by Country</h3>
+              <h3>Live Cases By Country</h3>
               {/* Countries Most Cases Chart  */}
               <CountriesTable countries={tableData} />
-              <h3>Worldwide new Cases</h3>
+              <h3 className="dashboard__graphTitle">Worldwide New {casesType}</h3>
               {/* Rising Daily Cases Line-Graph Chart.js */}
-              <DailyCasesLineGraph></DailyCasesLineGraph>
+              <DailyCasesLineGraph casesType={casesType}></DailyCasesLineGraph>
             </CardContent>
           </Card>
         </Col>
