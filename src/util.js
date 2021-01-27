@@ -28,15 +28,15 @@ const casesTypeColors = {
         // size of 'Circle' components 
         multiplier: 500,
         // need to pass-in options to change input and fill color as pathOptions
-        option: { color:"#cc1034", fillColor: "#cc1034" },
+        option: { color: "#cc1034", fillColor: "#cc1034" },
     },
     recovered: {
         multiplier: 800,
-        option: { color:"#7dd71d", fillColor: "#7dd71d" },
+        option: { color: "#7dd71d", fillColor: "#7dd71d" },
     },
     deaths: {
         multiplier: 1000,
-        option: { color:"#800080", fillColor: "#800080" }
+        option: { color: "#800080", fillColor: "#800080" }
     },
 };
 
@@ -50,8 +50,9 @@ export const numeralFormatStat = (stat) =>
 // clicking on different cards renders different colored circles 
 export const showCovidCirclesOnMap = (data, casesType = "cases") =>
     // no {} uses implicit return
-    data.map((country) => (
+    data.map((country, idx) => (
         <Circle
+            key={idx}
             center={[country.countryInfo.lat, country.countryInfo.long]}
             fillOpacity={0.4}
             // dynamically changes square-bracket value to change casesTypeColors based on passed-in String for cases 
