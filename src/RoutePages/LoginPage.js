@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react"
 import { MyContext } from "../Components/Context"
 import "../RoutePagesStyles/LoginRegister.css"
-import axios from "axios" 
+import axios from "axios"
 
 const LoginPage = () => {
     const url = "http://localhost:3000"
@@ -25,16 +25,17 @@ const LoginPage = () => {
             })
             console.log(response.data)
             // This sets the "token" and "loggedInUser" inside localStorage and sets the state variables as well.
-            localStorage.setItem('userLoggedIn', response.data.user.username) 
+            localStorage.setItem('userLoggedIn', response.data.user.username)
             localStorage.setItem('token', `Bearer ${response.data.token}`)
             setUserLoggedIn(response.data.user.username)
             setToken(`Bearer ${response.data.token}`)
+            if (response.data.status === 200) {
+                alert(`You have successfully logged in.`)
+                console.log("check window.localStorage to see if user-token appears inside chrome dev tools...")
+            }
         } catch (err) {
             console.error(err);
-        } finally {
-            alert(`You have successfully logged in.`)
-            console.log("check window.localStorage to see if user-token appears inside chrome dev tools...")
-        }
+        } 
     }
     return (
         <>

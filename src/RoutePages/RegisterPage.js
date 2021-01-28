@@ -19,13 +19,13 @@ const RegisterPage = (props) => {
                 password: password
             })
             console.log(response.data)
+            if (response.data.status === 200) {
+                // This redirects the user to the "LoginPage" after a new visitor has succesffuly created a username.
+                alert("Successfully created new username, please login.")
+                window.location.href = `/loginpage`;
+            }
         } catch (err) {
             console.error(err);
-        } finally {
-            // This redirects the user to the "LoginPage" after a new visitor has succesffuly created a username.
-            alert("Successfully created new username, please login.")
-            window.location.href = `/loginpage`;
-        }
     }
     return (
         <>

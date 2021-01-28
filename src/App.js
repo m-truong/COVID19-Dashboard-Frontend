@@ -12,6 +12,8 @@ function App() {
   const [userLoggedIn, setUserLoggedIn] = useState("") // username // password: "",
   const [token, setToken] = useState("")
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  
+  // debug
   console.log(userLoggedIn)
 
   const logOutHandler = (evt) => {
