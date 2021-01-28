@@ -9,14 +9,28 @@ import LoginPage from "./RoutePages/LoginPage"
 import axios from "axios"
 
 function App() {
-  const [userLoggedIn, setUserLoggedIn] = useState({
-    username: "",
-    password: "",
-    isLoggedIn: false,
-    token: "",
-  })
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userLoggedIn, setUserLoggedIn] = useState("") // username // password: "",
   const [token, setToken] = useState("")
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  console.log(userLoggedIn)
+
+  const logOutHandler = (evt) => {
+    setToken("")
+    setUserLoggedIn("")
+    localStorage.clear()
+    window.location.href = "/";
+  }
+
+  useEffect(() => {
+    // If localStorage contains a "token", "token" state is set to it's value.
+    if (localStorage.getItem('token')) {
+      setToken(localStorage.getItem('token'))
+    };
+    // If localStorage stores logged in "Customer" object, "currentCustomerLoggedIn" state is set to it's value. 
+    if (localStorage.getItem("userLoggedIn")) {
+      setUserLoggedIn(localStorage.getItem('userLoggedIn'))
+    };
+  }, [userLoggedIn]);
 
   return (
     <>
@@ -45,16 +59,28 @@ function App() {
           </Navbar.Brand>
           <Link className="x-nav-link" to="/coviddashboard">COVID-19 Live Dashboard <i className="fas fa-globe-americas"></i></Link>
           <Link className="x-nav-link" to="/infovideos">More Information YouTube Videos <i className="fas fa-head-side-cough"></i></Link>
-          <Link className="x-nav-link" to="/login">Customer Sign In <i class="fas fa-sign-in-alt"></i></Link>
-          <Link className="x-nav-link" to="/register">New Customer Registration <i class="fas fa-registered"></i></Link>
+          {
+            userLoggedIn
+              ? (
+                <>
+                  <span>Welcome Back {userLoggedIn}! <i class="fas fa-user"></i></span>
+                  <button href="/" onClick={logOutHandler}> Log Out </button>
+                </>
+              )
+              : (
+                <>
+                  <Link className="x-nav-link" to="/loginpage">Visitor Login <i class="fas fa-sign-in-alt"></i></Link>
+                  <Link className="x-nav-link" to="/registerpage">New Visitor Sign-up <i class="fas fa-registered"></i></Link>
+                </>
+              )
+          }
         </Navbar>
         <main>
           <Switch>
             <Route path="/coviddashboard" component={DashboardPage} />
             <Route path="/infovideos" component={VideosPage} />
-            <Route path="/login" component={LoginPage} />
-            <Route path="/register" component={RegisterPage} />
-
+            <Route path="/loginpage" component={LoginPage} />
+            <Route path="/registerpage" component={RegisterPage} />
             {/* <Route path="/product/:id" render={(routerProps) => { return <ShowPage routerProps={routerProps} /> }} /> */}
             <Route exact path="/" component={DashboardPage} />
           </Switch>

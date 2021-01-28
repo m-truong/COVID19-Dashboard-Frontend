@@ -1,40 +1,36 @@
 import React, { useRef } from "react";
-import axios from "axios"
 import "../RoutePagesStyles/LoginRegister.css"
+import axios from "axios"
 
 const RegisterPage = (props) => {
-    const url = "https://localhost:3000"
+    const url = "http://localhost:3000"
 
     const regNameInput = useRef(null);
     const regPasswordInput = useRef(null);
+
     const registerHandler = async (evt) => {
         evt.preventDefault();
-        const body = JSON.stringify({
-            username: regNameInput.current.value,
-            password: regPasswordInput.current.value
-        })
+        const username = regNameInput.current.value
+        const password = regPasswordInput.current.value
         evt.currentTarget.reset();
         try {
-            const response = await fetch(`${url}/api/customers/register`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body
+            const response = await axios.post(`${url}/users/`, {
+                username: username,
+                password: password
             })
-            const data = await response.json();
+            console.log(response.data)
         } catch (err) {
             console.error(err);
         } finally {
-            // This redirects the user to the "LoginPage" after a new customer has succesffuly created an account.
+            // This redirects the user to the "LoginPage" after a new visitor has succesffuly created a username.
             alert("Successfully created new username, please login.")
-            // window.location.href = `${url}/login`;
+            window.location.href = `/loginpage`;
         }
     }
     return (
         <>
             <div className="form-styles">
-                <h2>Register New Customer Form</h2>
+                <h2>Register New Visitor Form</h2>
                 <form onSubmit={registerHandler}>
                     <label> New Username:
             <input type="text" ref={regNameInput} placeholder="New username login" />
