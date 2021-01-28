@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DataCard() {
+function LeafletMap() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function DataCard() {
     )
 }
 
-export default DataCard
+export default LeafletMap

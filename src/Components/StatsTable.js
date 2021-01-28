@@ -1,8 +1,8 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
-import '../Styles/CountriesTable.css'
-import numeral from "numeral"
+// import '../Styles/CountriesTable.css'
+// import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
+// import numeral from "numeral"
 
-function CountriesTable({ countries }) {
+function StatsTable({ countries }) {
     // console.log(countries) // raw data ARRAY-JSON object
     return (
         <TableContainer className="table--styles">
@@ -38,4 +38,4 @@ function CountriesTable({ countries }) {
     )
 }
 
-export default CountriesTable
+export default StatsTable

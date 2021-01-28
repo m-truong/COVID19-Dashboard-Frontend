@@ -2,11 +2,12 @@ import { useState, useEffect, useContext } from "react"
 import { Route, Link, Switch } from "react-router-dom"
 import { MyContext } from "./Components/Context"
 import { Navbar } from "react-bootstrap"
-import DashboardPage from "./RoutePages/DashboardPage"
 import VideosPage from "./RoutePages/VideosPage"
 import RegisterPage from "./RoutePages/RegisterPage"
 import LoginPage from "./RoutePages/LoginPage"
 import axios from "axios"
+import WorldwideDashboardPage from "./RoutePages/WorldwideDashboardPage"
+import StatesDashboardPage from "./RoutePages/StatesDashboardPage"
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState("") // username // password: "",
@@ -59,8 +60,8 @@ function App() {
               alt="COVID_19_img"
             />
           </Navbar.Brand>
-          <Link className="x-nav-link" to="/coviddashboard">COVID-19 Live Dashboard <i className="fas fa-globe-americas"></i></Link>
-          <Link className="x-nav-link" to="/infovideos">More Information YouTube Videos <i className="fas fa-head-side-cough"></i></Link>
+          <Link className="" to="/coviddashboard">COVID-19 Live Dashboard <i className="fas fa-globe-americas"></i></Link>
+          <Link className="" to="/infovideos">More Information YouTube Videos <i className="fas fa-head-side-cough"></i></Link>
           {
             userLoggedIn
               ? (
@@ -71,23 +72,23 @@ function App() {
               )
               : (
                 <>
-                  <Link className="x-nav-link" to="/loginpage">Visitor Login <i class="fas fa-sign-in-alt"></i></Link>
-                  <Link className="x-nav-link" to="/registerpage">New Visitor Sign-up <i class="fas fa-registered"></i></Link>
+                  <Link className="" to="/loginpage">Visitor Login <i class="fas fa-sign-in-alt"></i></Link>
+                  <Link className="" to="/registerpage">New Visitor Sign-up <i class="fas fa-registered"></i></Link>
                 </>
               )
           }
         </Navbar>
         <main>
           <Switch>
-            <Route path="/coviddashboard" component={DashboardPage} />
+            <Route path="/statesdashboard" component={StatesDashboardPage} />
             <Route path="/infovideos" component={VideosPage} />
             <Route path="/loginpage" component={LoginPage} />
             <Route path="/registerpage" component={RegisterPage} />
             {/* <Route path="/product/:id" render={(routerProps) => { return <ShowPage routerProps={routerProps} /> }} /> */}
-            <Route exact path="/" component={DashboardPage} />
+            <Route exact path="/" component={WorldwideDashboardPage} />
           </Switch>
         </main>
-        <footer className="x-row x-center">
+        <footer className="">
           <Link className="" to="/"> COVID-19 Info Portal 🦠 </Link>
         </footer>
       </MyContext.Provider>

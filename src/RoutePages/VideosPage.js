@@ -7,7 +7,7 @@ import "../RoutePagesStyles/VideosPage.css"
 function VideosPage() {
     return (
         <Container fluid>
-            <h1>Youtube Fact Check Section</h1>
+            <h1>Youtube Informative Videos </h1>
             <Row>
                 <Col>
                     <Box className="reactPlayerBox--styles">
