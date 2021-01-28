@@ -60,8 +60,12 @@ function App() {
               alt="COVID_19_img"
             />
           </Navbar.Brand>
-          <Link className="" to="/coviddashboard">COVID-19 Live Dashboard <i className="fas fa-globe-americas"></i></Link>
-          <Link className="" to="/infovideos">More Information YouTube Videos <i className="fas fa-head-side-cough"></i></Link>
+          <Link className="" to="/">
+            COVID-19 Live Dashboard <i className="fas fa-globe-americas"></i>
+            </Link>
+          <Link className="" to="/infovideos">
+            More Information YouTube Videos <i className="fas fa-head-side-cough"></i>
+            </Link>
           {
             userLoggedIn
               ? (
@@ -72,8 +76,12 @@ function App() {
               )
               : (
                 <>
-                  <Link className="" to="/loginpage">Visitor Login <i class="fas fa-sign-in-alt"></i></Link>
-                  <Link className="" to="/registerpage">New Visitor Sign-up <i class="fas fa-registered"></i></Link>
+                  <Link className="" to="/loginpage">
+                    Visitor Login <i class="fas fa-sign-in-alt"></i>
+                    </Link>
+                  <Link className="" to="/registerpage">
+                    New Visitor Sign-up <i class="fas fa-registered"></i>
+                    </Link>
                 </>
               )
           }
