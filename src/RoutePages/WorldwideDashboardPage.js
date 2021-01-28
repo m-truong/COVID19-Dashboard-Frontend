@@ -8,19 +8,30 @@ import axios from "axios"
 
 export default function WorldwideDashboardPage(props) {
     const [worldData, setWorldData] = useState([])
+    const [countriesData, setCountriesData] = useState([])
 
     const getWorldData = async () => {
         try {
-            const covidData = await axios.get("https://disease.sh/v3/covid-19/all")
-            console.log(covidData)
-            setWorldData(covidData.data)
+            const worldDataResponse = await axios.get("https://disease.sh/v3/covid-19/all")
+            console.log(worldDataResponse)
+            setWorldData(worldDataResponse.data)
+        } catch (e) {
+            console.error(e)
+        }
+    }
+    const getCountriesData = async () => {
+        try {
+            const countriesDataResponse = await axios.get("https://disease.sh/v3/covid-19/countries")
+            console.log(countriesDataResponse)
+            setCountriesData(countriesDataResponse.data)
         } catch (e) {
             console.error(e)
         }
     }
 
     useEffect(()=> {
-        getWorldData();
+        getWorldData()
+        getCountriesData()
     }, [])
 
     return (
