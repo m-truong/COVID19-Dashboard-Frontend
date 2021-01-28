@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import axios from "axios"
+import "../RoutePagesStyles/LoginRegister.css"
 
 const RegisterPage = (props) => {
     const url = "https://localhost:3000"
@@ -25,7 +26,6 @@ const RegisterPage = (props) => {
         } catch (err) {
             console.error(err);
         } finally {
-            // console.log("check MongoDB Atlas if new Customer username was created...");
             // This redirects the user to the "LoginPage" after a new customer has succesffuly created an account.
             alert("Successfully created new username, please login.")
             // window.location.href = `${url}/login`;
@@ -33,7 +33,7 @@ const RegisterPage = (props) => {
     }
     return (
         <>
-            <div className="x-form-container">
+            <div className="form-styles">
                 <h2>Register New Customer Form</h2>
                 <form onSubmit={registerHandler}>
                     <label> New Username:

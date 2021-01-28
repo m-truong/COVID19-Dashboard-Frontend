@@ -45,6 +45,8 @@ function App() {
           </Navbar.Brand>
           <Link className="x-nav-link" to="/coviddashboard">COVID-19 Live Dashboard <i className="fas fa-globe-americas"></i></Link>
           <Link className="x-nav-link" to="/infovideos">More Information YouTube Videos <i className="fas fa-head-side-cough"></i></Link>
+          <Link className="x-nav-link" to="/login">Customer Sign In <i class="fas fa-sign-in-alt"></i></Link>
+          <Link className="x-nav-link" to="/register">New Customer Registration <i class="fas fa-registered"></i></Link>
         </Navbar>
         <main>
           <Switch>

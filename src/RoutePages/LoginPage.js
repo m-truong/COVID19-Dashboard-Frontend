@@ -1,4 +1,5 @@
 import React, { useContext, useRef } from "react";
+import "../RoutePagesStyles/LoginRegister.css"
 
 const LoginPage = () => {
     const url = "https://localhost:3000"
@@ -23,7 +24,7 @@ const LoginPage = () => {
                 body
             })
             const data = await response.json()
-            // This sets the "token" and "currentCustomerLoggedIn" inside localStorage and sets the state variables as well.
+            // This sets the "token" and "loggedInUser" inside localStorage and sets the state variables as well.
             window.localStorage.setItem('token', `Bearer ${data.token}`)
             window.localStorage.setItem('currentCustomerLoggedIn', data.user)
             setCustomerLoggedIn(data.user)
@@ -36,7 +37,7 @@ const LoginPage = () => {
     }
     return (
         <>
-            <div className="x-form-container">
+            <div className="form-styles">
                 <h2>Login Existing Customer Form</h2>
                 <form onSubmit={loginHandler}>
                     <label> Username:
