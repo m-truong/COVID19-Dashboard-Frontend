@@ -18,14 +18,17 @@ const RegisterPage = (props) => {
                 username: username,
                 password: password
             })
+            // ** Note: there's an edge-case where same username and password can sign up
             console.log(response.data)
-            if (response.data.status === 200) {
+            if (response.data) {
                 // This redirects the user to the "LoginPage" after a new visitor has succesffuly created a username.
                 alert("Successfully created new username, please login.")
                 window.location.href = `/loginpage`;
             }
         } catch (err) {
+            alert("Could not create new user, please try again.")
             console.error(err);
+        }
     }
     return (
         <>

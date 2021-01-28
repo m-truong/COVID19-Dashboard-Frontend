@@ -34,8 +34,9 @@ const LoginPage = () => {
                 console.log("check window.localStorage to see if user-token appears inside chrome dev tools...")
             }
         } catch (err) {
+            alert(`Invalid login, please try again.`)
             console.error(err);
-        } 
+        }
     }
     return (
         <>
