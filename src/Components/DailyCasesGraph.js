@@ -1,11 +1,9 @@
-import React from 'react'
+import styled, { css, keyframes } from "styled-components"
 
-function DailyCasesGraph() {
+export default function DailyCasesGraph() {
     return (
         <div>
             
         </div>
     )
 }
-
-export default DailyCasesGraph

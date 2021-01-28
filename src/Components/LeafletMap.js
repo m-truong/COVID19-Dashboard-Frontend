@@ -1,11 +1,10 @@
-import React from 'react'
+import styled, { css, keyframes } from "styled-components"
 
-function LeafletMap() {
+
+export default function LeafletMap() {
     return (
         <div>
             
         </div>
     )
 }
-
-export default LeafletMap

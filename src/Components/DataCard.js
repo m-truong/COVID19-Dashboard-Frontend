@@ -1,6 +1,6 @@
-import React from 'react'
+import styled, { css, keyframes } from "styled-components"
 
-function DataCard() {
+export default function DataCard() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function DataCard() {
     )
 }
 
-export default DataCard
+

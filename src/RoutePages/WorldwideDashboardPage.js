@@ -1,9 +1,12 @@
-import React from 'react'
+import LeafletMap from "../Components/LeafletMap"
+import DailyCasesGraph from "../Components/DailyCasesGraph"
+import StatsTable from "../Components/StatsTable"
+import DataCard from "../Components/DataCard"
 
-function WorldwideDashboardPage() {
+
+export default function WorldwideDashboardPage() {
     return (
         <h1>Hello World!</h1>
     )
 }
 
-export default WorldwideDashboardPage

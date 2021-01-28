@@ -1,11 +1,12 @@
-import React from 'react'
+import LeafletMap from "../Components/LeafletMap"
+import DailyCasesGraph from "../Components/DailyCasesGraph"
+import StatsTable from "../Components/StatsTable"
+import DataCard from "../Components/DataCard"
 
-function StatesDashboardPage() {
+
+export default function StatesDashboardPage() {
     return (
-        <div>
-            
-        </div>
+        <h1>Hello World!</h1>
     )
 }
 
-export default StatesDashboardPage
