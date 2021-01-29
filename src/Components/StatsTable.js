@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from "styled-components"
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import numeral from "numeral"
+import "../App.css"
 
 const Heading = styled.h2`
     color: grey;
@@ -8,13 +9,24 @@ const Heading = styled.h2`
 `;
 
 const Stat = styled.h1`
-    color: red;
-    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    ${(props) => {
+        switch (props.type) {
+            case "Cases":
+                return "color: crimson;";
+            case "Deaths":
+                return "color: purple;";
+            case "Recovered":
+                return "color: green;";
+        }
+        return "color: black;";
+    }}
 `;
 
-const CardContainer = styled.div`
-    background-color: darkgrey;
-    border-radius: 0.5rem !important;
+const TableStyle = styled.div`
+    height: 400px;
+    overflow: scroll;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
@@ -26,8 +38,7 @@ const CardContainer = styled.div`
 `;
 
 
-export default function StatsTable({ countries }) {
-    // console.log(countries) // raw data ARRAY-JSON object
+export default function StatsTable({ countries, type }) {
     return (
         <TableContainer className="table--styles">
             <Table>
@@ -37,25 +48,23 @@ export default function StatsTable({ countries }) {
                             Countries
                     </TableCell>
                         <TableCell align="right">
-                            # Cases
-                    </TableCell>
+                            {type}
+                        </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {/* {
-                        // maps over every single object
-                        countries.map(({ country, cases}, idx) => {
-                            // { console.log(country, cases) }
-                            // need explicit return
+                    {
+                        countries.map(({ country, stat }, idx) => {
                             return (
-                                // wrap containing element
                                 <TableRow key={idx}>
                                     <TableCell>{country}</TableCell>
-                                    <TableCell align="right"><strong>{numeral(cases).format("0,0")}</strong></TableCell>
+                                    <TableCell align="right">
+                                            <Stat type={type}>{numeral(stat).format("0,0")}</Stat>
+                                    </TableCell>
                                 </TableRow>
                             )
                         })
-                    } */}
+                    }
                 </TableBody>
             </Table>
         </TableContainer>

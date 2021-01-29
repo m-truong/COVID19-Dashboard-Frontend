@@ -13,7 +13,7 @@ import axios from "axios"
 
 function App() {
   const [playbackRate, setPlaybackRate] = useState(0.75);
-  const [play, exposedData] = useSound(outbreak, { playbackRate, volume: 0.25 });
+  const [play, exposedData] = useSound(outbreak, { playbackRate, volume: 0.10 });
 
   const [userLoggedIn, setUserLoggedIn] = useState("") // username // password: "",
   const [token, setToken] = useState("")
@@ -30,15 +30,14 @@ function App() {
   }
 
   useEffect(() => {
-    // If localStorage contains a "token", "token" state is set to it's value.
     if (localStorage.getItem('token')) {
       setToken(localStorage.getItem('token'))
     };
-    // If localStorage stores logged in "Customer" object, "currentCustomerLoggedIn" state is set to it's value. 
     if (localStorage.getItem("userLoggedIn")) {
       setUserLoggedIn(localStorage.getItem('userLoggedIn'))
     };
-    play()
+  play()
+
   }, [userLoggedIn]);
 
   return (
@@ -53,17 +52,17 @@ function App() {
           variant="dark"
           sticky="top"
           expand="lg"
-          style={{ background: "white" }}
+          // style={{ background: "white" }}
           // rounded
-          className="shadow p-3 mb-0 justify-content-between"
+          className="shadow p-3 mb-3 justify-content-between"
         >
           <Navbar.Brand href="/">
             <img
-              src="https://images.theconversation.com/files/319386/original/file-20200309-167285-1p9yqjv.png?ixlib=rb-1.1.0&q=45&auto=format&w=1000&fit=clip"
               width="30"
               height="30"
               className="d-inline-block align-top"
               alt="COVID_19_img"
+              src="https://images.theconversation.com/files/319386/original/file-20200309-167285-1p9yqjv.png?ixlib=rb-1.1.0&q=45&auto=format&w=1000&fit=clip"
             />
           </Navbar.Brand>
           <Link className="" to="/">

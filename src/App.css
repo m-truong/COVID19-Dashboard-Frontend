@@ -1,7 +1,5 @@
 * {
-  /* adds margin outside container */
   margin: 0; 
-  /* adds padding inside container */
   padding: 0; 
   box-sizing: border-box;
 }
@@ -12,3 +10,20 @@ body {
   height: 100vh;
   background-color: transparent;
 } 
+
+.table--styles {
+  margin-top: 20px; 
+  padding: 0.5rem;
+  /* overflow scroll */
+  overflow: scroll;
+  /* needs fixed height */
+  height: 400px;
+}
+
+.table--styles tr:nth-of-type(odd) {
+  background-color: #f3f2f8;
+}
+
+.table--styles td {
+  padding: 0.6rem;
+}
