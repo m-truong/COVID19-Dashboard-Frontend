@@ -5,15 +5,20 @@ import { Navbar } from "react-bootstrap"
 import VideosPage from "./RoutePages/VideosPage"
 import RegisterPage from "./RoutePages/RegisterPage"
 import LoginPage from "./RoutePages/LoginPage"
-import axios from "axios"
 import WorldwideDashboardPage from "./RoutePages/WorldwideDashboardPage"
 import StatesDashboardPage from "./RoutePages/StatesDashboardPage"
+import useSound from 'use-sound'
+import outbreak from "./Public/biohazard.mp3"
+import axios from "axios"
 
 function App() {
+  const [playbackRate, setPlaybackRate] = useState(0.75);
+  const [play, exposedData] = useSound(outbreak, { playbackRate, volume: 0.25 });
+
   const [userLoggedIn, setUserLoggedIn] = useState("") // username // password: "",
   const [token, setToken] = useState("")
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  
+
   // debug
   console.log(userLoggedIn)
 
@@ -33,6 +38,7 @@ function App() {
     if (localStorage.getItem("userLoggedIn")) {
       setUserLoggedIn(localStorage.getItem('userLoggedIn'))
     };
+    play()
   }, [userLoggedIn]);
 
   return (
@@ -62,10 +68,11 @@ function App() {
           </Navbar.Brand>
           <Link className="" to="/">
             COVID-19 Live Dashboard <i className="fas fa-globe-americas"></i>
-            </Link>
+          </Link>
           <Link className="" to="/infovideos">
             More Information YouTube Videos <i className="fas fa-head-side-cough"></i>
-            </Link>
+          </Link>
+
           {
             userLoggedIn
               ? (
@@ -78,10 +85,10 @@ function App() {
                 <>
                   <Link className="" to="/loginpage">
                     Visitor Login <i class="fas fa-sign-in-alt"></i>
-                    </Link>
+                  </Link>
                   <Link className="" to="/registerpage">
                     New Visitor Sign-up <i class="fas fa-registered"></i>
-                    </Link>
+                  </Link>
                 </>
               )
           }
