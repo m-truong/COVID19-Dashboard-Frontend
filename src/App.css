@@ -10,6 +10,10 @@ body {
   height: 100%;
 }
 
+.username {
+  color: white;
+}
+
 /* Hyperlink Styles */
 .link-decoration {
   color: white;
@@ -52,4 +56,11 @@ body {
 }
 .table-styles tr:nth-of-type(even) {
   /* background-color: white; */
+}
+
+/* Button Extra Styles */
+button:hover {
+    background-color: crimson;
+    border: 0.1rem #404040 solid;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }

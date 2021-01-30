@@ -170,3 +170,43 @@ export const Main = styled.main`
         height: 100px;
     }
 `;
+
+export const FormBox = styled.div`
+    width: 50vw;
+    margin: 0 auto;
+    margin-top: 20rem;
+    border-radius: 1.5rem;
+    background-color: #43464B;
+    color: white;
+    padding: 20px;
+`;
+
+export const Input = styled.input`
+    margin: 0.9rem;
+    padding: 0.5rem;
+    border: 0px;
+    box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2), 0 0.2em 0.2em rgba(0, 0, 0, 0.2);
+`;
+
+export const Button = styled.button`
+    color: white;
+    cursor: pointer;
+    background-color: #CC0000;
+    border: 0.1rem #a4a4a4 solid;
+
+    border-radius: 2rem;
+    box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2), 0 0.2em 0.2em rgba(0, 0, 0, 0.2);
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+    margin: 0 1rem;
+    padding: 0.5rem;
+
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --webkit-font-smoothing: antialiased;
+    --moz-osx-font-smoothing: grayscale;
+
+`;
