@@ -12,7 +12,13 @@ body {
 
 .username {
   color: white;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
+
+/* .username:hover {
+  color: green;
+} */
 
 /* Hyperlink Styles */
 .link-decoration {

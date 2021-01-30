@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { Route, Link, Switch } from "react-router-dom"
 import { MyContext } from "./Components/Context"
 import { Navbar } from "react-bootstrap"
-import { Footer, Main } from "./utilities"
+import { Footer, Main, Button } from "./utilities"
 import VideosPage from "./RoutePages/VideosPage"
 import RegisterPage from "./RoutePages/RegisterPage"
 import LoginPage from "./RoutePages/LoginPage"
@@ -72,7 +72,7 @@ function App() {
               ? (
                 <>
                   <span className="username">Welcome Back {userLoggedIn}! <i class="fas fa-user"></i></span>
-                  <button href="/" onClick={logOutHandler}> Log Out </button>
+                  <Button href="/" onClick={logOutHandler}> Log Out </Button>
                 </>
               )
               : (

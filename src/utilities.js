@@ -197,7 +197,7 @@ export const Button = styled.button`
     border-radius: 2rem;
     box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2), 0 0.2em 0.2em rgba(0, 0, 0, 0.2);
     font-family: "Poppins", sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
 
     letter-spacing: 1px;
@@ -210,3 +210,45 @@ export const Button = styled.button`
     --moz-osx-font-smoothing: grayscale;
 
 `;
+
+export const options = {
+    tooltips: {
+        mode: "index",
+        intersect: false,
+        // displayColors: false,
+        titleFontSize: 16,
+        bodyFontSize: 14,
+        xPadding: 10,
+        yPadding: 10,
+        callbacks: {
+            label: (tooltipItem) => {
+                return numeral(tooltipItem.value).format("+0,0");
+            }
+        }
+    },
+    scales: {
+        yAxes: [
+            {
+                stacked: true
+            }
+        ]
+    },
+    // aspect ratio
+    maintainAspectRatio: false,
+    // fixes growing height chart 
+    responsive: false,
+    // doesn't display legend above
+    legend: {
+        display: false,
+    },
+    elements: {
+        // point radius
+        point: {
+            radius: 0,
+        },
+    },
+}
+
+export const prepareChartData = () => {
+
+}
