@@ -28,7 +28,7 @@ export default function CovidLiveMap({ covidCircleData, type }) {
                 scrollWheelZoom={false}
             >
                 <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 />
                 {drawCovidCircles(covidCircleData, type)}

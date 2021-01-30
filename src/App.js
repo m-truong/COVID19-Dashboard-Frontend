@@ -7,16 +7,14 @@ import RegisterPage from "./RoutePages/RegisterPage"
 import LoginPage from "./RoutePages/LoginPage"
 import WorldwideDashboardPage from "./RoutePages/WorldwideDashboardPage"
 import StatesDashboardPage from "./RoutePages/StatesDashboardPage"
-import useSound from 'use-sound'
-import outbreak from "./Public/biohazard.mp3"
+import ReactAudioPlayer from "react-audio-player"
+import outbreak from "./Public/covid19_audio.mp3"
+// import covid19 from "./Public/covid19_animation.mp4"
 import axios from "axios"
 
 function App() {
-  const [playbackRate, setPlaybackRate] = useState(0.75);
-  const [play, exposedData] = useSound(outbreak, { playbackRate, volume: 0.10 });
-
   // username // password: "",
-  const [userLoggedIn, setUserLoggedIn] = useState("") 
+  const [userLoggedIn, setUserLoggedIn] = useState("")
   const [token, setToken] = useState("")
 
   const logOutHandler = (evt) => {
@@ -33,7 +31,6 @@ function App() {
     if (localStorage.getItem("userLoggedIn")) {
       setUserLoggedIn(localStorage.getItem('userLoggedIn'))
     };
-    // play()
   }, [userLoggedIn]);
 
   return (
@@ -43,6 +40,26 @@ function App() {
           userData: [userLoggedIn, setUserLoggedIn],
           tokenData: [token, setToken]
         }}>
+        <ReactAudioPlayer
+          src={outbreak}
+          autoPlay
+          loop
+          volume={0.2}
+        />
+        {/* <video
+        autoPlay
+        loop
+        muted
+        style={{
+          filter: "opacity(90%) saturate(100%) contrast(100%)",
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: "-1",
+        }}>
+          <source src={covid19} type="video/mp4"></source>
+        </video> */}
         <Navbar
           bg="dark"
           variant="dark"

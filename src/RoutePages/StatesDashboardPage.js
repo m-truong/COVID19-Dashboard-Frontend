@@ -29,7 +29,6 @@ export default function StatesDashboardPage(props) {
     const getStatesData = async () => {
         try {
             const statesDataResponse = await axios.get("https://disease.sh/v3/covid-19/states")
-
             const tempStatesArray = statesDataResponse.data.map(x => {
                 let found = statesArray.find(item => item.state === x.state);
                 if (found) {
@@ -90,7 +89,7 @@ export default function StatesDashboardPage(props) {
                     <CovidLiveMap covidCircleData={statesLatLongData} type="United States"/>
                 </Col>
                 <Col md={2}>
-                    <DataCard title={"Confirmed Cases"} stat={usData.cases} />
+                    <DataCard title={"Cases"} stat={usData.cases} />
                     <StatsTable name="States" region={casesTableData} type="Cases" />
                 </Col>
                 <Col md={2}>

@@ -64,7 +64,7 @@ export default function WorldwideDashboardPage(props) {
                     <CovidLiveMap covidCircleData={countriesData} type="Worldwide"/>
                 </Col>
                 <Col md={2}>
-                    <DataCard title={"Confirmed Cases"} stat={worldData.cases} />
+                    <DataCard title={"Cases"} stat={worldData.cases} />
                     <StatsTable name="Countries" region={casesTableData} type="Cases" />
                 </Col>
                 <Col md={2}>

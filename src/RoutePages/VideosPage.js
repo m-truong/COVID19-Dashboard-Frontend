@@ -17,6 +17,7 @@ function VideosPage() {
                             width={"100%"}
                             height={"350px"}
                             controls={true}
+                            pip={true}
                         />
                     </Box>
                 </Col>
@@ -28,6 +29,7 @@ function VideosPage() {
                             width={"100%"}
                             height={"350px"}
                             controls={true}
+                            pip={true}
                         />
                     </Box>
                 </Col>
@@ -39,7 +41,8 @@ function VideosPage() {
                             width={"100%"}
                             height={"350px"}
                             controls={true}
-                        />
+                            pip={true}
+                            />
                     </Box>
                 </Col>
             </Row>
@@ -52,6 +55,7 @@ function VideosPage() {
                             width={"100%"}
                             height={"350px"}
                             controls={true}
+                            pip={true}
                         />
                     </Box>
                 </Col>
@@ -63,6 +67,7 @@ function VideosPage() {
                             width={"100%"}
                             height={"350px"}
                             controls={true}
+                            pip={true}
                         />
                     </Box>
                 </Col>
@@ -74,6 +79,7 @@ function VideosPage() {
                             width={"100%"}
                             height={"350px"}
                             controls={true}
+                            pip={true}
                         />
                     </Box>
                 </Col>

@@ -14,9 +14,9 @@ const Stat = styled.h1`
     ${(props) => {
         switch (props.type) {
             case "Cases":
-                return "color: crimson;";
+                return "color: red;";
             case "Deaths":
-                return "color: purple;";
+                return "color: red;";
             case "Recovered":
                 return "color: green;";
         }
