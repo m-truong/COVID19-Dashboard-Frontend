@@ -8,7 +8,7 @@ body {
   /* background: #444 url("https://caltechsites-prod.s3.amazonaws.com/coviddynamic/images/Covid_19_medical_background_with_abstract_vir.width-1600.jpg") fixed center no-repeat; 
   background-size: cover;  */
   height: 100vh;
-  background-color: transparent;
+  /* background-color: rgba(35, 26, 26, 0.859); */
 } 
 
 .table--styles {
@@ -26,4 +26,9 @@ body {
 
 .table--styles td {
   padding: 0.6rem;
+}
+
+.map--styles {
+  height: 100%;
+  border-radius: 20px;
 }

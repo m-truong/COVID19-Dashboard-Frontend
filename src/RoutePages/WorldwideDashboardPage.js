@@ -1,8 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import { sortCountriesTable } from "../util"
-import LeafletMap from "../Components/LeafletMap"
-import DailyCasesGraph from "../Components/DailyCasesGraph"
+import { sortTableData } from "../utilities"
+import CovidLiveMap from "../Components/CovidLiveMap"
 import StatsTable from "../Components/StatsTable"
 import DataCard from "../Components/DataCard"
 import axios from "axios"
@@ -14,12 +13,9 @@ export default function WorldwideDashboardPage(props) {
     const [deathsTableData, setDeathsTableData] = useState([])
     const [recoveredTableData, setRecoveredTableData] = useState([])
 
-    // const [countriesAbbrevs, setCountriesAbbrevs] = useState([])
-
     const getWorldData = async () => {
         try {
             const worldDataResponse = await axios.get("https://disease.sh/v3/covid-19/all")
-            console.log(worldDataResponse.data)
             setWorldData(worldDataResponse.data)
         } catch (e) {
             console.error(e)
@@ -28,25 +24,22 @@ export default function WorldwideDashboardPage(props) {
     const getCountriesData = async () => {
         try {
             const countriesDataResponse = await axios.get("https://disease.sh/v3/covid-19/countries")
-            console.log(countriesDataResponse.data)
-            const sortedCases = sortCountriesTable(countriesDataResponse.data.map((countryObj) => (
+            setCountriesData(countriesDataResponse.data)
+            const sortedCases = sortTableData(countriesDataResponse.data.map((countryObj) => (
                 {
-                    country: countryObj.country,
-                    abbrev: countryObj.countryInfo.iso2,
+                    name: countryObj.country,
                     stat: countryObj.cases,
                 }
             )))
-            const sortedDeaths = sortCountriesTable(countriesDataResponse.data.map((countryObj) => (
+            const sortedDeaths = sortTableData(countriesDataResponse.data.map((countryObj) => (
                 {
-                    country: countryObj.country,
-                    abbrev: countryObj.countryInfo.iso2,
+                    name: countryObj.country,
                     stat: countryObj.deaths,
                 }
             )))
-            const sortedRecovered = sortCountriesTable(countriesDataResponse.data.map((countryObj) => (
+            const sortedRecovered = sortTableData(countriesDataResponse.data.map((countryObj) => (
                 {
-                    country: countryObj.country,
-                    abbrev: countryObj.countryInfo.iso2,
+                    name: countryObj.country,
                     stat: countryObj.recovered,
                 }
             )))
@@ -65,40 +58,22 @@ export default function WorldwideDashboardPage(props) {
 
     return (
         <Container fluid>
+            <h1>COVID-19 Worldwide Dashboard </h1>
             <Row className="justify-content-around">
                 <Col md={6}>
-                    <LeafletMap>
-
-                    </LeafletMap>
-                    <DailyCasesGraph>
-
-                    </DailyCasesGraph>
+                    <CovidLiveMap covidCircleData={countriesData} type="Worldwide"/>
                 </Col>
                 <Col md={2}>
-                    <DataCard title={"Confirmed Cases"} stat={worldData.cases}>
-
-                    </DataCard>
-                    <StatsTable countries={casesTableData} type="Cases">
-
-                    </StatsTable>
+                    <DataCard title={"Confirmed Cases"} stat={worldData.cases} />
+                    <StatsTable name="Countries" region={casesTableData} type="Cases" />
                 </Col>
                 <Col md={2}>
-                    <DataCard title={"Deaths"} stat={worldData.deaths}>
-
-                    </DataCard>
-                    <StatsTable countries={deathsTableData}  type="Deaths">
-
-
-                    </StatsTable>
+                    <DataCard title={"Deaths"} stat={worldData.deaths} />
+                    <StatsTable name="Countries" region={deathsTableData} type="Deaths" />
                 </Col>
                 <Col md={2}>
-                    <DataCard title={"Recovered"} stat={worldData.recovered}>
-
-                    </DataCard>
-                    <StatsTable countries={recoveredTableData} type="Recovered">
-
-
-                    </StatsTable>
+                    <DataCard title={"Recovered"} stat={worldData.recovered} />
+                    <StatsTable name="Countries" region={recoveredTableData} type="Recovered" />
                 </Col>
             </Row>
         </Container>

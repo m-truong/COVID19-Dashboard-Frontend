@@ -38,14 +38,14 @@ const TableStyle = styled.div`
 `;
 
 
-export default function StatsTable({ countries, type }) {
+export default function StatsTable({ name, region, type }) {
     return (
         <TableContainer className="table--styles">
             <Table>
                 <TableHead>
                     <TableRow>
                         <TableCell>
-                            Countries
+                            {name}
                     </TableCell>
                         <TableCell align="right">
                             {type}
@@ -54,10 +54,10 @@ export default function StatsTable({ countries, type }) {
                 </TableHead>
                 <TableBody>
                     {
-                        countries.map(({ country, stat }, idx) => {
+                        region.map(({ name, stat }, idx) => {
                             return (
                                 <TableRow key={idx}>
-                                    <TableCell>{country}</TableCell>
+                                    <TableCell>{name}</TableCell>
                                     <TableCell align="right">
                                             <Stat type={type}>{numeral(stat).format("0,0")}</Stat>
                                     </TableCell>

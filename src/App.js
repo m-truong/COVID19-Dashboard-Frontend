@@ -15,12 +15,9 @@ function App() {
   const [playbackRate, setPlaybackRate] = useState(0.75);
   const [play, exposedData] = useSound(outbreak, { playbackRate, volume: 0.10 });
 
-  const [userLoggedIn, setUserLoggedIn] = useState("") // username // password: "",
+  // username // password: "",
+  const [userLoggedIn, setUserLoggedIn] = useState("") 
   const [token, setToken] = useState("")
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-
-  // debug
-  console.log(userLoggedIn)
 
   const logOutHandler = (evt) => {
     setToken("")
@@ -36,8 +33,7 @@ function App() {
     if (localStorage.getItem("userLoggedIn")) {
       setUserLoggedIn(localStorage.getItem('userLoggedIn'))
     };
-  play()
-
+    // play()
   }, [userLoggedIn]);
 
   return (
@@ -52,8 +48,6 @@ function App() {
           variant="dark"
           sticky="top"
           expand="lg"
-          // style={{ background: "white" }}
-          // rounded
           className="shadow p-3 mb-3 justify-content-between"
         >
           <Navbar.Brand href="/">
@@ -66,17 +60,23 @@ function App() {
             />
           </Navbar.Brand>
           <Link className="" to="/">
-            COVID-19 Live Dashboard <i className="fas fa-globe-americas"></i>
+            COVID-19 World Dashboard <i className="fas fa-globe-americas"></i>
+          </Link>
+          <Link className="" to="/statesdashboard">
+            COVID-19 US Dashboard <i className="fas fa-flag-usa"></i>
           </Link>
           <Link className="" to="/infovideos">
-            More Information YouTube Videos <i className="fas fa-head-side-cough"></i>
+            COVID-19 Videos <i className="fas fa-viruses"></i>
+          </Link>
+          <Link className="" to="/vaccines">
+            COVID-19 Vaccinations <i className="fas fa-syringe"></i>
           </Link>
 
           {
             userLoggedIn
               ? (
                 <>
-                  <span>Welcome Back {userLoggedIn}! <i class="fas fa-user"></i></span>
+                  <span className="username">Welcome Back {userLoggedIn}! <i class="fas fa-user"></i></span>
                   <button href="/" onClick={logOutHandler}> Log Out </button>
                 </>
               )
