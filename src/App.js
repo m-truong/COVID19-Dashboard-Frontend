@@ -5,17 +5,19 @@ import { Navbar } from "react-bootstrap"
 import VideosPage from "./RoutePages/VideosPage"
 import RegisterPage from "./RoutePages/RegisterPage"
 import LoginPage from "./RoutePages/LoginPage"
-import axios from "axios"
 import WorldwideDashboardPage from "./RoutePages/WorldwideDashboardPage"
 import StatesDashboardPage from "./RoutePages/StatesDashboardPage"
+import useSound from 'use-sound'
+import outbreak from "./Public/biohazard.mp3"
+import axios from "axios"
 
 function App() {
-  const [userLoggedIn, setUserLoggedIn] = useState("") // username // password: "",
+  const [playbackRate, setPlaybackRate] = useState(0.75);
+  const [play, exposedData] = useSound(outbreak, { playbackRate, volume: 0.10 });
+
+  // username // password: "",
+  const [userLoggedIn, setUserLoggedIn] = useState("") 
   const [token, setToken] = useState("")
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  
-  // debug
-  console.log(userLoggedIn)
 
   const logOutHandler = (evt) => {
     setToken("")
@@ -25,14 +27,13 @@ function App() {
   }
 
   useEffect(() => {
-    // If localStorage contains a "token", "token" state is set to it's value.
     if (localStorage.getItem('token')) {
       setToken(localStorage.getItem('token'))
     };
-    // If localStorage stores logged in "Customer" object, "currentCustomerLoggedIn" state is set to it's value. 
     if (localStorage.getItem("userLoggedIn")) {
       setUserLoggedIn(localStorage.getItem('userLoggedIn'))
     };
+    // play()
   }, [userLoggedIn]);
 
   return (
@@ -47,33 +48,46 @@ function App() {
           variant="dark"
           sticky="top"
           expand="lg"
-          style={{ background: "white" }}
-          // rounded
-          className="shadow p-3 mb-0 justify-content-between"
+          className="shadow p-3 mb-3 justify-content-between"
         >
           <Navbar.Brand href="/">
             <img
-              src="https://images.theconversation.com/files/319386/original/file-20200309-167285-1p9yqjv.png?ixlib=rb-1.1.0&q=45&auto=format&w=1000&fit=clip"
               width="30"
               height="30"
               className="d-inline-block align-top"
               alt="COVID_19_img"
+              src="https://images.theconversation.com/files/319386/original/file-20200309-167285-1p9yqjv.png?ixlib=rb-1.1.0&q=45&auto=format&w=1000&fit=clip"
             />
           </Navbar.Brand>
-          <Link className="" to="/coviddashboard">COVID-19 Live Dashboard <i className="fas fa-globe-americas"></i></Link>
-          <Link className="" to="/infovideos">More Information YouTube Videos <i className="fas fa-head-side-cough"></i></Link>
+          <Link className="" to="/">
+            COVID-19 World Dashboard <i className="fas fa-globe-americas"></i>
+          </Link>
+          <Link className="" to="/statesdashboard">
+            COVID-19 US Dashboard <i className="fas fa-flag-usa"></i>
+          </Link>
+          <Link className="" to="/infovideos">
+            COVID-19 Videos <i className="fas fa-viruses"></i>
+          </Link>
+          <Link className="" to="/vaccines">
+            COVID-19 Vaccinations <i className="fas fa-syringe"></i>
+          </Link>
+
           {
             userLoggedIn
               ? (
                 <>
-                  <span>Welcome Back {userLoggedIn}! <i class="fas fa-user"></i></span>
+                  <span className="username">Welcome Back {userLoggedIn}! <i class="fas fa-user"></i></span>
                   <button href="/" onClick={logOutHandler}> Log Out </button>
                 </>
               )
               : (
                 <>
-                  <Link className="" to="/loginpage">Visitor Login <i class="fas fa-sign-in-alt"></i></Link>
-                  <Link className="" to="/registerpage">New Visitor Sign-up <i class="fas fa-registered"></i></Link>
+                  <Link className="" to="/loginpage">
+                    Visitor Login <i class="fas fa-sign-in-alt"></i>
+                  </Link>
+                  <Link className="" to="/registerpage">
+                    New Visitor Sign-up <i class="fas fa-registered"></i>
+                  </Link>
                 </>
               )
           }
