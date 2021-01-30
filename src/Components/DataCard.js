@@ -11,6 +11,17 @@ const Stat = styled.h1`
     color: crimson;
     text-align: center;
     font-family: 'Fira Sans', sans-serif;
+    ${(props) => {
+        switch (props.type) {
+            case "Cases":
+                return "color: red;";
+            case "Deaths":
+                return "color: red;";
+            case "Recovered":
+                return "color: green;";
+        }
+        return "color: black;";
+    }}
 `;
 
 const CardContainer = styled.div`
@@ -29,7 +40,7 @@ export default function DataCard({ title, stat }) {
     return (
         <CardContainer>
             <Heading>Total {title}</Heading>
-            <Stat>{numeral(stat).format("0,0")}</Stat>
+            <Stat type={title}>{numeral(stat).format("0,0")}</Stat>
         </CardContainer>
     )
 }
