@@ -87,15 +87,15 @@ export default function StatesDashboardPage(props) {
                 <Col md={6}>
                     <CovidLiveMap covidCircleData={statesLatLongData} type="United States"/>
                 </Col>
-                <Col md={2}>
+                <Col className="col-margin-top" md={2}>
                     <DataCard title={"Cases"} stat={usData.cases} />
                     <StatsTable name="States" region={casesTableData} type="Cases" />
                 </Col>
-                <Col md={2}>
+                <Col className="col-margin-top" md={2}>
                     <DataCard title={"Deaths"} stat={usData.deaths} />
                     <StatsTable name="States" region={deathsTableData} type="Deaths" />
                 </Col>
-                <Col md={2}>
+                <Col  className="col-margin-top" md={2}>
                     <DataCard title={"Recovered"} stat={usData.recovered} />
                     <StatsTable name="States" region={recoveredTableData} type="Recovered" />
                 </Col>

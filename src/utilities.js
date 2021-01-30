@@ -124,11 +124,49 @@ export const sortTableData = (data) => {
     );
 }
 
-
 export const Title = styled.h1`
-
+    color: white;
     text-align: center;
     font-size: 3rem;
     font-weight: bold;
-    color: white;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+`;
+
+export const Box = styled.div`
+    border: 0.15rem #2E2F2F solid;
+    background-color: #43464B;
+    border-radius: 1.1rem;
+    margin: 0.5rem;
+    padding: 1rem;
+    
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    &hover: {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); 
+    }
+`;
+
+export const Footer = styled.footer`
+    text-align: center;
+    background-color: #43464B;
+    padding-top: 1rem;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 4rem;
+    width: 100%;
+
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+`;
+
+export const Main = styled.main`
+    min-height: 100%;
+    &after: {
+        content: "";
+        display: block; 
+        height: 100px;
+    }
 `;

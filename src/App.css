@@ -1,18 +1,35 @@
 * {
-  margin: 0; 
-  padding: 0; 
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
 }
 
+html,
 body {
-  height: 100vh;
-} 
+  height: 100%;
+}
+
+/* Hyperlink Styles */
+.link-decoration {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.2rem;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.link-decoration:hover {
+  color: red;
+  text-decoration: none;
+}
 
 .col-margin-top {
   margin-top: 3rem;
 }
 
- /* React-Leaflet Map Styles */
+/* React-Leaflet Map Styles */
 .map--styles {
   height: 100%;
   border-radius: 10px;
@@ -20,12 +37,11 @@ body {
 
 /* COVID-19 Statistics Table Styles */
 .table--styles {
-  margin-top: 20px; 
-  /* padding: rem; */
+  margin-top: 20px;
   border-radius: 1.3rem;
   overflow: scroll;
   height: 400px;
-  background-color: #2E2F2F;
+  background-color: #2e2f2f;
 }
 
 .table--styles td {
@@ -37,4 +53,3 @@ body {
 .table--styles tr:nth-of-type(even) {
   /* background-color: white; */
 }
-

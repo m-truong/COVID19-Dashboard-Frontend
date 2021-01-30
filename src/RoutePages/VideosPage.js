@@ -1,13 +1,12 @@
 import React from 'react'
 import { Container, Row, Col } from "react-bootstrap"
-import Box from "@material-ui/core/Box"
+import { Box, Title } from "../utilities"
 import ReactPlayer from "react-player"
-import "../RoutePagesStyles/VideosPage.css"
 
 function VideosPage() {
     return (
         <Container fluid>
-            <h1>Youtube Informative Videos </h1>
+            <Title>Informative Videos</Title>
             <Row>
                 <Col>
                     <Box className="reactPlayerBox--styles">
@@ -42,7 +41,7 @@ function VideosPage() {
                             height={"350px"}
                             controls={true}
                             pip={true}
-                            />
+                        />
                     </Box>
                 </Col>
             </Row>
