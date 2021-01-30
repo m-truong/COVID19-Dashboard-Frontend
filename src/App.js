@@ -9,7 +9,7 @@ import WorldwideDashboardPage from "./RoutePages/WorldwideDashboardPage"
 import StatesDashboardPage from "./RoutePages/StatesDashboardPage"
 import ReactAudioPlayer from "react-audio-player"
 import outbreak from "./Public/covid19_audio.mp3"
-// import covid19 from "./Public/covid19_animation.mp4"
+import covid19 from "./Public/covid19_animation2.mp4"
 import axios from "axios"
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
           loop
           volume={0.2}
         />
-        {/* <video
+        <video
         autoPlay
         loop
         muted
@@ -59,7 +59,7 @@ function App() {
           zIndex: "-1",
         }}>
           <source src={covid19} type="video/mp4"></source>
-        </video> */}
+        </video>
         <Navbar
           bg="dark"
           variant="dark"

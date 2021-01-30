@@ -8,6 +8,12 @@ body {
   height: 100vh;
 } 
 
+ /* React-Leaflet Map Styles */
+.map--styles {
+  height: 100%;
+  border-radius: 10px;
+}
+
 .table--styles {
   margin-top: 20px; 
   padding: 0.5rem;
@@ -23,9 +29,4 @@ body {
 
 .table--styles td {
   padding: 0.6rem;
-}
-
-.map--styles {
-  height: 100%;
-  border-radius: 20px;
 }

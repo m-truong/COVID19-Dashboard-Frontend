@@ -3,16 +3,14 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet"
 import { drawCovidCircles } from "../utilities"
 
 const MapBorder = styled.div`
-    height: 500px;
-    background-color: ghostwhite;
+    height: 650px;
+    background-color: #43464B;
     padding: 1rem;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-top: 3rem;
     box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-
     &:hover {
-        /* cursor: pointer; */
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
 `;
