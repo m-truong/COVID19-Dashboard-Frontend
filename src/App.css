@@ -30,26 +30,26 @@ body {
 }
 
 /* React-Leaflet Map Styles */
-.map--styles {
+.map-styles {
   height: 100%;
   border-radius: 10px;
 }
 
 /* COVID-19 Statistics Table Styles */
-.table--styles {
+.table-styles {
   margin-top: 20px;
-  border-radius: 1.3rem;
+  border-radius: 0.6rem;
   overflow: scroll;
   height: 400px;
   background-color: #2e2f2f;
 }
 
-.table--styles td {
+.table-styles td {
   padding: 0.5rem;
 }
-.table--styles tr:nth-of-type(odd) {
+.table-styles tr:nth-of-type(odd) {
   /* background-color: #8E9090; */
 }
-.table--styles tr:nth-of-type(even) {
+.table-styles tr:nth-of-type(even) {
   /* background-color: white; */
 }

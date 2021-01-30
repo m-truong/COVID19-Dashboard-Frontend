@@ -19,7 +19,7 @@ export default function CovidLiveMap({ covidCircleData, type }) {
     return (
         <MapBorder>
             <MapContainer
-                className="map--styles"
+                className="map-styles"
                 center={type === "Worldwide" ? { lat: 34.80746, lng: -5.4796 } : { lat: 37.0902, lng: -95.7129 }}
                 zoom={type === "Worldwide" ? 2 : 4}
                 maxZoom={9}
