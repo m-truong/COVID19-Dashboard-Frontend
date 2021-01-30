@@ -58,7 +58,11 @@ export const statesArray = [
 const circleColors = {
     option: { color: "#b80f0a", fillColor: "#b80f0a" },
 }
-const PopupBox = styled.div``;
+const PopupBox = styled.div`
+    color: white;
+    background-color: #2E2F2F;
+    padding: 10px;
+`;
 
 const PopupStat = styled.h2`
     font-size: 1rem;
@@ -76,7 +80,7 @@ export const drawCovidCircles = (covidCircleData, type) => {
                 center={[regionObj.countryInfo.lat, regionObj.countryInfo.long]}
             >
                 <Popup>
-                    <PopupBox className="map__popup">
+                    <PopupBox>
                         <PopupStat>
                             {regionObj.country}
                         </PopupStat>

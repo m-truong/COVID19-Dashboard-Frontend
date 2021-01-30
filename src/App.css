@@ -14,19 +14,25 @@ body {
   border-radius: 10px;
 }
 
+/* COVID-19 Statistics Table Styles */
 .table--styles {
   margin-top: 20px; 
-  padding: 0.5rem;
+  /* padding: rem; */
+  border-radius: 1.3rem;
   /* overflow scroll */
   overflow: scroll;
   /* needs fixed height */
   height: 400px;
-}
-
-.table--styles tr:nth-of-type(odd) {
-  background-color: #f3f2f8;
+  background-color: #2E2F2F;
 }
 
 .table--styles td {
-  padding: 0.6rem;
+  padding: 0.5rem;
 }
+.table--styles tr:nth-of-type(odd) {
+  /* background-color: #8E9090; */
+}
+.table--styles tr:nth-of-type(even) {
+  /* background-color: white; */
+}
+

@@ -1,5 +1,5 @@
-import styled, { css, keyframes } from "styled-components"
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet"
+import styled from "styled-components"
+import { MapContainer, TileLayer } from "react-leaflet"
 import { drawCovidCircles } from "../utilities"
 
 const MapBorder = styled.div`
