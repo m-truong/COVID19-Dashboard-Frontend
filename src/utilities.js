@@ -58,11 +58,33 @@ export const statesArray = [
 const circleColors = {
     option: { color: "#b80f0a", fillColor: "#b80f0a" },
 }
-const PopupBox = styled.div``;
+const PopupBox = styled.div`
+    color: white;
+    background-color: #2E2F2F;
+    padding: 15px;
+    border-radius: 1rem;
+`;
 
 const PopupStat = styled.h2`
-    font-size: 1rem;
     margin-top: 5px;
+    ${(props) => {
+        switch (props.size) {
+            case "Heading":
+                return "font-size: 1.3rem;";
+        }
+        return "font-size: 1.1rem;";
+    }}
+    ${(props) => {
+        switch (props.type) {
+            case "Cases":
+                return "color: red;";
+            case "Deaths":
+                return "color: red;";
+            case "Recovered":
+                return "color: green;";
+        }
+        return "color: white;";
+    }}
 `;
 
 export const drawCovidCircles = (covidCircleData, type) => {
@@ -76,18 +98,18 @@ export const drawCovidCircles = (covidCircleData, type) => {
                 center={[regionObj.countryInfo.lat, regionObj.countryInfo.long]}
             >
                 <Popup>
-                    <PopupBox className="map__popup">
-                        <PopupStat>
+                    <PopupBox>
+                        <PopupStat size="Heading" >
                             {regionObj.country}
                         </PopupStat>
-                        <PopupStat>
+                        <PopupStat type="Cases">
                             Cases: {numeral(regionObj.cases).format("0,0")}
                         </PopupStat>
-                        <PopupStat>
-                            Recovered: {numeral(regionObj.recovered).format("0,0")}
-                        </PopupStat>
-                        <PopupStat>
+                        <PopupStat type="Deaths">
                             Deaths: {numeral(regionObj.deaths).format("0,0")}
+                        </PopupStat>
+                        <PopupStat type="Recovered">
+                            Recovered: {numeral(regionObj.recovered).format("0,0")}
                         </PopupStat>
                     </PopupBox>
                 </Popup>
@@ -102,4 +124,89 @@ export const sortTableData = (data) => {
     );
 }
 
+export const Title = styled.h1`
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+`;
 
+export const Box = styled.div`
+    border: 0.15rem #2E2F2F solid;
+    background-color: #43464B;
+    border-radius: 1.1rem;
+    margin: 0.5rem;
+    padding: 1rem;
+    
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    &hover: {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); 
+    }
+`;
+
+export const Footer = styled.footer`
+    text-align: center;
+    background-color: #43464B;
+    padding-top: 1rem;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 4rem;
+    width: 100%;
+
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+`;
+
+export const Main = styled.main`
+    min-height: 100%;
+    &after: {
+        content: "";
+        display: block; 
+        height: 100px;
+    }
+`;
+
+export const FormBox = styled.div`
+    width: 50vw;
+    margin: 0 auto;
+    margin-top: 20rem;
+    border-radius: 1.5rem;
+    background-color: #43464B;
+    color: white;
+    padding: 20px;
+`;
+
+export const Input = styled.input`
+    margin: 0.9rem;
+    padding: 0.5rem;
+    border: 0px;
+    box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2), 0 0.2em 0.2em rgba(0, 0, 0, 0.2);
+`;
+
+export const Button = styled.button`
+    color: white;
+    cursor: pointer;
+    background-color: #CC0000;
+    border: 0.1rem #a4a4a4 solid;
+
+    border-radius: 2rem;
+    box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2), 0 0.2em 0.2em rgba(0, 0, 0, 0.2);
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+    margin: 0 1rem;
+    padding: 0.5rem;
+
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --webkit-font-smoothing: antialiased;
+    --moz-osx-font-smoothing: grayscale;
+
+`;

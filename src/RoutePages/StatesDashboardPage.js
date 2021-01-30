@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import { sortTableData, statesArray } from "../utilities"
+import { sortTableData, statesArray, Title } from "../utilities"
 import CovidLiveMap from "../Components/CovidLiveMap"
 import StatsTable from "../Components/StatsTable"
 import DataCard from "../Components/DataCard"
@@ -12,7 +12,6 @@ export default function StatesDashboardPage(props) {
     const [deathsTableData, setDeathsTableData] = useState([])
     const [recoveredTableData, setRecoveredTableData] = useState([])
 
-    // const [statesData, setStatesData] = useState([])
 
     // cause it was a let variable it wasn't updating the state!
     const [statesLatLongData, setStatesLatLongData] = useState([])
@@ -83,20 +82,20 @@ export default function StatesDashboardPage(props) {
 
     return (
         <Container fluid>
-            <h1>COVID-19 United States Dashboard </h1>
+            <Title>COVID-19 United States Dashboard </Title>
             <Row className="justify-content-around">
                 <Col md={6}>
                     <CovidLiveMap covidCircleData={statesLatLongData} type="United States"/>
                 </Col>
-                <Col md={2}>
+                <Col className="col-margin-top" md={2}>
                     <DataCard title={"Cases"} stat={usData.cases} />
                     <StatsTable name="States" region={casesTableData} type="Cases" />
                 </Col>
-                <Col md={2}>
+                <Col className="col-margin-top" md={2}>
                     <DataCard title={"Deaths"} stat={usData.deaths} />
                     <StatsTable name="States" region={deathsTableData} type="Deaths" />
                 </Col>
-                <Col md={2}>
+                <Col  className="col-margin-top" md={2}>
                     <DataCard title={"Recovered"} stat={usData.recovered} />
                     <StatsTable name="States" region={recoveredTableData} type="Recovered" />
                 </Col>

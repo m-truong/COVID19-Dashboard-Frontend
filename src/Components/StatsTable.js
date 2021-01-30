@@ -3,14 +3,20 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from
 import numeral from "numeral"
 import "../App.css"
 
-const Heading = styled.h2`
-    color: grey;
-    text-align: center;
+const Heading = styled.span`
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: left;
 `;
 
 const Stat = styled.h1`
     font-size: 0.9rem;
     font-weight: bold;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &:hover {
+        // text-shadow: 2px 2px white;
+    }
     ${(props) => {
         switch (props.type) {
             case "Cases":
@@ -24,31 +30,18 @@ const Stat = styled.h1`
     }}
 `;
 
-const TableStyle = styled.div`
-    height: 400px;
-    overflow: scroll;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-
-    // pseudo-class
-    &:hover {
-        /* cursor: pointer; */
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    }
-`;
-
 
 export default function StatsTable({ name, region, type }) {
     return (
-        <TableContainer className="table--styles">
+        <TableContainer className="table-styles">
             <Table>
                 <TableHead>
                     <TableRow>
                         <TableCell>
-                            {name}
+                            <Heading>{name}</Heading>
                     </TableCell>
                         <TableCell align="right">
-                            {type}
+                            <Heading>{type}</Heading>
                         </TableCell>
                     </TableRow>
                 </TableHead>
@@ -57,7 +50,7 @@ export default function StatsTable({ name, region, type }) {
                         region.map(({ name, stat }, idx) => {
                             return (
                                 <TableRow key={idx}>
-                                    <TableCell>{name}</TableCell>
+                                    <TableCell><Heading>{name}</Heading></TableCell>
                                     <TableCell align="right">
                                             <Stat type={type}>{numeral(stat).format("0,0")}</Stat>
                                     </TableCell>

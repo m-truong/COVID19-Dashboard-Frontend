@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
-import "../RoutePagesStyles/LoginRegister.css"
+import { FormBox, Input, Button } from "../utilities"
 import axios from "axios"
+import "../App.css"
 
 const RegisterPage = (props) => {
     const url = "http://localhost:3000"
@@ -31,20 +32,18 @@ const RegisterPage = (props) => {
         }
     }
     return (
-        <>
-            <div className="form-styles">
-                <h2>Register New Visitor Form</h2>
-                <form onSubmit={registerHandler}>
-                    <label> New Username:
-            <input type="text" ref={regNameInput} placeholder="New username login" />
-                    </label>
-                    <label> New Password:
-            <input type="password" ref={regPasswordInput} placeholder="New password login" />
-                    </label>
-                    <button type="submit">Submit!</button>
-                </form>
-            </div>
-        </>
+        <FormBox>
+            <h4 style={{textAlign: 'center'}}>New Visitor Registration</h4>
+            <form onSubmit={registerHandler}>
+                <label> New Username:
+            <Input type="text" ref={regNameInput} placeholder="New username login" />
+                </label>
+                <label> New Password:
+            <Input type="password" ref={regPasswordInput} placeholder="New password login" />
+                </label>
+                <Button type="submit">Submit!</Button>
+            </form>
+        </FormBox>
     )
 }
 

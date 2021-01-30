@@ -1,7 +1,8 @@
 import React, { useContext, useRef } from "react"
+import { FormBox, Input, Button } from "../utilities"
 import { MyContext } from "../Components/Context"
-import "../RoutePagesStyles/LoginRegister.css"
 import axios from "axios"
+import "../App.css"
 
 const LoginPage = () => {
     const url = "http://localhost:3000"
@@ -39,20 +40,18 @@ const LoginPage = () => {
         }
     }
     return (
-        <>
-            <div className="form-styles">
-                <h2>Login Existing Visitor Form</h2>
-                <form onSubmit={loginHandler}>
-                    <label> Username:
-            <input type="text" ref={usernameInput} placeholder="Username login" />
-                    </label>
-                    <label> Password:
-            <input type="password" ref={passwordInput} placeholder="Password login" />
-                    </label>
-                    <button type="submit">Submit!</button>
-                </form>
-            </div>
-        </>
+        <FormBox>
+            <h4 style={{textAlign: 'center'}}>Login Form</h4>
+            <form onSubmit={loginHandler}>
+                <label> Username:
+            <Input type="text" ref={usernameInput} placeholder="Username login" />
+                </label>
+                <label> Password:
+            <Input type="password" ref={passwordInput} placeholder="Password login" />
+                </label>
+                <Button type="submit">Submit!</Button>
+            </form>
+        </FormBox>
     )
 }
 export default LoginPage;
