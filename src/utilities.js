@@ -61,12 +61,30 @@ const circleColors = {
 const PopupBox = styled.div`
     color: white;
     background-color: #2E2F2F;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 1rem;
 `;
 
 const PopupStat = styled.h2`
-    font-size: 1rem;
     margin-top: 5px;
+    ${(props) => {
+        switch (props.size) {
+            case "Heading":
+                return "font-size: 1.3rem;";
+        }
+        return "font-size: 1.1rem;";
+    }}
+    ${(props) => {
+        switch (props.type) {
+            case "Cases":
+                return "color: red;";
+            case "Deaths":
+                return "color: red;";
+            case "Recovered":
+                return "color: green;";
+        }
+        return "color: white;";
+    }}
 `;
 
 export const drawCovidCircles = (covidCircleData, type) => {
@@ -81,17 +99,17 @@ export const drawCovidCircles = (covidCircleData, type) => {
             >
                 <Popup>
                     <PopupBox>
-                        <PopupStat>
+                        <PopupStat size="Heading" >
                             {regionObj.country}
                         </PopupStat>
-                        <PopupStat>
+                        <PopupStat type="Cases">
                             Cases: {numeral(regionObj.cases).format("0,0")}
                         </PopupStat>
-                        <PopupStat>
-                            Recovered: {numeral(regionObj.recovered).format("0,0")}
-                        </PopupStat>
-                        <PopupStat>
+                        <PopupStat type="Deaths">
                             Deaths: {numeral(regionObj.deaths).format("0,0")}
+                        </PopupStat>
+                        <PopupStat type="Recovered">
+                            Recovered: {numeral(regionObj.recovered).format("0,0")}
                         </PopupStat>
                     </PopupBox>
                 </Popup>
@@ -107,3 +125,10 @@ export const sortTableData = (data) => {
 }
 
 
+export const Title = styled.h1`
+
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+`;

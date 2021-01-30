@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import { sortTableData } from "../utilities"
+import { sortTableData, Title } from "../utilities"
 import CovidLiveMap from "../Components/CovidLiveMap"
 import StatsTable from "../Components/StatsTable"
 import DataCard from "../Components/DataCard"
@@ -58,20 +58,20 @@ export default function WorldwideDashboardPage(props) {
 
     return (
         <Container fluid>
-            <h1>COVID-19 Worldwide Dashboard </h1>
+            <Title>COVID-19 Worldwide Dashboard </Title>
             <Row className="justify-content-around">
                 <Col md={6}>
                     <CovidLiveMap covidCircleData={countriesData} type="Worldwide"/>
                 </Col>
-                <Col md={2}>
+                <Col className="col-margin-top" md={2}>
                     <DataCard title={"Cases"} stat={worldData.cases} />
                     <StatsTable name="Countries" region={casesTableData} type="Cases" />
                 </Col>
-                <Col md={2}>
+                <Col className="col-margin-top" md={2}>
                     <DataCard title={"Deaths"} stat={worldData.deaths} />
                     <StatsTable name="Countries" region={deathsTableData} type="Deaths" />
                 </Col>
-                <Col md={2}>
+                <Col className="col-margin-top" md={2}>
                     <DataCard title={"Recovered"} stat={worldData.recovered} />
                     <StatsTable name="Countries" region={recoveredTableData} type="Recovered" />
                 </Col>

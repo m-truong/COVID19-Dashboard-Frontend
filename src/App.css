@@ -8,6 +8,10 @@ body {
   height: 100vh;
 } 
 
+.col-margin-top {
+  margin-top: 3rem;
+}
+
  /* React-Leaflet Map Styles */
 .map--styles {
   height: 100%;
@@ -19,9 +23,7 @@ body {
   margin-top: 20px; 
   /* padding: rem; */
   border-radius: 1.3rem;
-  /* overflow scroll */
   overflow: scroll;
-  /* needs fixed height */
   height: 400px;
   background-color: #2E2F2F;
 }
