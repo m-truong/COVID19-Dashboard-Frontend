@@ -227,28 +227,78 @@ export const options = {
         }
     },
     scales: {
+        xAxes: [
+            {
+                type: 'time',
+                time: {
+                    format: "MM/DD/YY",
+                    tooltipFormat: "ll"
+                },
+                ticks: {
+                    fontColor: '#cfcfcf',
+                    fontSize: 12,
+                    fontFamily: "Spartan",
+                    fontWeight: 600,
+                },
+                gridLines: {
+                    display: false,
+                    color: 'rgba(255, 255, 255, 0.25)',
+                }
+            }
+        ],
         yAxes: [
             {
-                stacked: true
+                gridLines: {
+                    display: true,
+                    color: 'rgba(255, 255, 255, 0.25)',
+                },
+                ticks: {
+                    fontColor: '#cfcfcf',
+                    fontSize: 12,
+                    fontFamily: "Spartan",
+                    fontWeight: 600,
+                    callback: function (value) {
+                        return numeral(value).format("0a");
+                    }
+                },
             }
         ]
     },
     // aspect ratio
-    maintainAspectRatio: false,
+    maintainAspectRatio: true,
     // fixes growing height chart 
-    responsive: false,
+    responsive: true,
     // doesn't display legend above
     legend: {
         display: false,
     },
     elements: {
-        // point radius
         point: {
             radius: 0,
         },
     },
 }
+export const Subheading = styled.h3`
+    font-size: 2rem; 
+    text-align: center;
+    color: white;
+`;
 
-export const prepareChartData = () => {
-
+export const prepareChartData = (historicalData) => {
+    const chartData = []
+    let lastDataPoint;
+    for (let date in historicalData.cases) {
+        // Loops until the end
+        if (lastDataPoint) {
+            const newDataPoint = {
+                // Find difference in daily cases from current-date and last-date 
+                // Outputs number ## of new daily-cases
+                x: date,
+                y: historicalData.cases[date] - lastDataPoint
+            }
+            chartData.push(newDataPoint)
+        }
+        lastDataPoint = historicalData.cases[date];
+    }
+    return chartData;
 }
