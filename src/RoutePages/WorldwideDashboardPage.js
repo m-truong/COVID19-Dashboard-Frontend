@@ -60,12 +60,12 @@ export default function WorldwideDashboardPage(props) {
         <Container fluid>
             <Title>COVID-19 Worldwide Dashboard </Title>
             <Row className="justify-content-around">
-                <Col md={6}>
-                    <CovidLiveMap covidCircleData={countriesData} type="Worldwide" />
-                </Col>
                 <Col className="col-margin-top" md={2}>
                     <DataCard title={"Cases"} stat={worldData.cases} />
                     <StatsTable name="Countries" region={casesTableData} type="Cases" />
+                </Col>
+                <Col md={6}>
+                    <CovidLiveMap covidCircleData={countriesData} type="Worldwide" />
                 </Col>
                 <Col className="col-margin-top" md={2}>
                     <DataCard title={"Deaths"} stat={worldData.deaths} />

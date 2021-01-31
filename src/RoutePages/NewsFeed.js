@@ -58,15 +58,15 @@ export default function NewsFeed() {
     return (
         <Container fluid>
             <Row>
-                <Col md={5}>
-                    <h1>Twitter Feed</h1>
-                </Col>
                 <Col md={4}>
                     {/* <h1>ChartJs</h1> */}
                     <DailyCasesGraph title="Worldwide Daily New Cases" graphData={worldHistoricalCases} />
                     <DailyCasesGraph title="United States Daily New Cases" graphData={unitedStatesHistoricalCases} />
                 </Col>
-                <Col md={3}>
+                <Col md={4}>
+                    <h1>Twitter Feed</h1>
+                </Col>
+                <Col md={4}>
                     <DataCard title="Vaccines Administered" stat={totalVaccines}></DataCard>
                     <Box className="hover" style={{ backgroundColor: "#d3d3d3;", minHeight: "200px;", height: "200px;" }}>
                         {/* <Lightbox
