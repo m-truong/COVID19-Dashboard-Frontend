@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { Route, Link, Switch } from "react-router-dom"
 import { MyContext } from "./Components/Context"
 import { Navbar } from "react-bootstrap"
-import { Footer, Main } from "./utilities"
+import { Footer, Main, Button } from "./utilities"
 import VideosPage from "./RoutePages/VideosPage"
 import RegisterPage from "./RoutePages/RegisterPage"
 import LoginPage from "./RoutePages/LoginPage"
@@ -12,6 +12,7 @@ import ReactAudioPlayer from "react-audio-player"
 import outbreak from "./Public/covid19_audio.mp3"
 import covid19 from "./Public/covid19_animation2.mp4"
 import axios from "axios"
+import NewsFeed from "./RoutePages/NewsFeed"
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState("")
@@ -58,29 +59,29 @@ function App() {
             News Feed <i className="fas fa-syringe"></i>
           </Link>
           <Link className="link-decoration" to="/world">
-            World Dashboard <i className="fas fa-globe-americas"></i>
+            World Map <i className="fas fa-globe-americas"></i>
           </Link>
           <Link className="link-decoration" to="/states">
-            US Dashboard <i className="fas fa-flag-usa"></i>
+            US Map <i className="fas fa-flag-usa"></i>
           </Link>
           <Link className="link-decoration" to="/videos">
-            Informative Videos <i className="fas fa-viruses"></i>
+            Info Videos <i className="fas fa-viruses"></i>
           </Link>
           {
             userLoggedIn
               ? (
                 <>
                   <span className="username">Welcome Back {userLoggedIn}! <i class="fas fa-user"></i></span>
-                  <button href="/" onClick={logOutHandler}> Log Out </button>
+                  <Button href="/" onClick={logOutHandler}> Log Out </Button>
                 </>
               )
               : (
                 <>
                   <Link className="link-decoration" to="/loginpage">
-                    Visitor Login <i class="fas fa-sign-in-alt"></i>
+                    Login <i class="fas fa-sign-in-alt"></i>
                   </Link>
                   <Link className="link-decoration" to="/registerpage">
-                    New Visitor Sign-up <i class="fas fa-registered"></i>
+                    Sign-Up <i class="fas fa-registered"></i>
                   </Link>
                 </>
               )
@@ -94,7 +95,7 @@ function App() {
             <Route path="/loginpage" component={LoginPage} />
             <Route path="/registerpage" component={RegisterPage} />
             {/* <Route path="/product/:id" render={(routerProps) => { return <ShowPage routerProps={routerProps} /> }} /> */}
-            {/* <Route exact path="/" component={NewsFeedPage} /> */}
+            <Route exact path="/" component={NewsFeed} />
           </Switch>
         </Main>
         <Footer className="">

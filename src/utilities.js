@@ -197,7 +197,7 @@ export const Button = styled.button`
     border-radius: 2rem;
     box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2), 0 0.2em 0.2em rgba(0, 0, 0, 0.2);
     font-family: "Poppins", sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
 
     letter-spacing: 1px;
@@ -210,3 +210,95 @@ export const Button = styled.button`
     --moz-osx-font-smoothing: grayscale;
 
 `;
+
+export const options = {
+    tooltips: {
+        mode: "index",
+        intersect: false,
+        // displayColors: false,
+        titleFontSize: 16,
+        bodyFontSize: 14,
+        xPadding: 10,
+        yPadding: 10,
+        callbacks: {
+            label: (tooltipItem) => {
+                return numeral(tooltipItem.value).format("+0,0");
+            }
+        }
+    },
+    scales: {
+        xAxes: [
+            {
+                type: 'time',
+                time: {
+                    format: "MM/DD/YY",
+                    tooltipFormat: "ll"
+                },
+                ticks: {
+                    fontColor: '#cfcfcf',
+                    fontSize: 12,
+                    fontFamily: "Spartan",
+                    fontWeight: 600,
+                },
+                gridLines: {
+                    display: false,
+                    color: 'rgba(255, 255, 255, 0.25)',
+                }
+            }
+        ],
+        yAxes: [
+            {
+                gridLines: {
+                    display: true,
+                    color: 'rgba(255, 255, 255, 0.25)',
+                },
+                ticks: {
+                    fontColor: '#cfcfcf',
+                    fontSize: 12,
+                    fontFamily: "Spartan",
+                    fontWeight: 600,
+                    callback: function (value) {
+                        return numeral(value).format("0a");
+                    }
+                },
+            }
+        ]
+    },
+    // aspect ratio
+    maintainAspectRatio: true,
+    // fixes growing height chart 
+    responsive: true,
+    // doesn't display legend above
+    legend: {
+        display: false,
+    },
+    elements: {
+        point: {
+            radius: 0,
+        },
+    },
+}
+export const Subheading = styled.h3`
+    font-size: 2rem; 
+    text-align: center;
+    color: white;
+`;
+
+export const prepareChartData = (historicalData) => {
+    const chartData = []
+    let lastDataPoint;
+    for (let date in historicalData.cases) {
+        // Loops until the end
+        if (lastDataPoint) {
+            const newDataPoint = {
+                // Find difference in daily cases from current-date and last-date 
+                // Outputs number ## of new daily-cases
+                x: date,
+                y: historicalData.cases[date] - lastDataPoint
+            }
+            chartData.push(newDataPoint)
+        }
+        lastDataPoint = historicalData.cases[date];
+    }
+    return chartData;
+}

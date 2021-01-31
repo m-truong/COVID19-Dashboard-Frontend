@@ -19,6 +19,8 @@ const Stat = styled.h1`
                 return "color: red;";
             case "Recovered":
                 return "color: green;";
+            case "Vaccines Administered":
+                return "color: green;";
         }
         return "color: black;";
     }}
@@ -35,7 +37,7 @@ const CardContainer = styled.div`
     }
 `;
 
-export default function DataCard({ title, stat }) {
+export default function DataCard({ title, stat}) {
     return (
         <CardContainer>
             <Heading>Total {title}</Heading>
