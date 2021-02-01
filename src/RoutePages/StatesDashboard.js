@@ -6,14 +6,13 @@ import StatsTable from "../Components/StatsTable"
 import DataCard from "../Components/DataCard"
 import axios from "axios"
 
-export default function StatesDashboardPage(props) {
+export default function StatesDashboard(props) {
     const [usData, setUSData] = useState([])
     const [casesTableData, setCasesTableData] = useState([])
     const [deathsTableData, setDeathsTableData] = useState([])
     const [recoveredTableData, setRecoveredTableData] = useState([])
 
-
-    // cause it was a let variable it wasn't updating the state!
+    // cause it was a let variable it wasn't updating the state
     const [statesLatLongData, setStatesLatLongData] = useState([])
 
     const getUnitedStatesData = async () => {

@@ -6,7 +6,7 @@ import ReactPlayer from "react-player"
 function VideosPage() {
     return (
         <Container fluid>
-            <Title>Informative Videos</Title>
+            <Title>COVID-19 Videos</Title>
             <Row>
                 <Col>
                     <Box>

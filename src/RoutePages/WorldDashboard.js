@@ -6,7 +6,7 @@ import StatsTable from "../Components/StatsTable"
 import DataCard from "../Components/DataCard"
 import axios from "axios"
 
-export default function WorldwideDashboardPage(props) {
+export default function WorldDashboard(props) {
     const [worldData, setWorldData] = useState([])
     const [countriesData, setCountriesData] = useState([])
     const [casesTableData, setCasesTableData] = useState([])
