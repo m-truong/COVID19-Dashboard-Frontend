@@ -92,7 +92,7 @@ export default function NewsFeed() {
                     {/* <a class="twitter-timeline" data-lang="en" data-theme="dark" href="https://twitter.com/TwitterDev/timelines/539487832448843776?ref_src=twsrc%5Etfw">National Park Tweets - Curated tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> */}
                 </Col>
                 <Col md={4}>
-                    <DataCard title="Vaccines Administered" stat={totalVaccines}></DataCard>
+                    <DataCard title="Vaccines Administered" stat={totalVaccines} style={{ width: "100px" }}></DataCard>
                     <Box className="hover" style={{ backgroundColor: "#d3d3d3;", minHeight: "200px;", height: "200px;" }}>
                         {/* <Lightbox
                             mainSrc={poster}
