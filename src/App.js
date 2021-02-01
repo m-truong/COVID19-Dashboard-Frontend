@@ -56,7 +56,7 @@ function App() {
             /> COVID-19 Information Portal
           </Navbar.Brand>
           <Link className="link-decoration" to="/">
-            News Feed <i className="fas fa-syringe"></i>
+            New Cases <i className="fas fa-syringe"></i>
           </Link>
           <Link className="link-decoration" to="/world">
             World Map <i className="fas fa-globe-americas"></i>

@@ -11,7 +11,7 @@ export default function DailyCasesGraph({ title, graphData }) {
     return (
         // fixes height growth issue
         <Box className="hover" style={{"position" : "relative", "display" : "block"}}>
-            <Subheading>{title} Graph </Subheading>
+            <Subheading>{title} </Subheading>
             <Line
                 options={options}
                 data={
