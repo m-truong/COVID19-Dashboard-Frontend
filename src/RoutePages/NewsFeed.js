@@ -84,7 +84,7 @@ export default function NewsFeed() {
                 <Col md={4}>
                     {/* <h1>ChartJs</h1> */}
                     <DailyCasesGraph title="Worldwide Daily New Cases" graphData={worldHistoricalCases} />
-                    <DailyCasesGraph title="United States Daily New Cases" graphData={unitedStatesHistoricalCases} />
+                    <DailyCasesGraph title="US Daily New Cases" graphData={unitedStatesHistoricalCases} />
                 </Col>
                 <Col md={4}>
                     <h1>Twitter Feed</h1>
