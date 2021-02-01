@@ -10,25 +10,25 @@ import DailyCasesGraph from "../Components/DailyCasesGraph"
 export default function NewsFeed() {
     const [worldHistoricalCases, setWorldHistoricalCases] = useState([])
     const [unitedStatesHistoricalCases, setUSHistoricalCases] = useState([])
-    const [totalVaccines30, setTotalVaccines30] = useState([])
+    const [totalVaccines, setTotalVaccines] = useState([])
     const [tweetsData, setTweetsData] = useState([])
 
-    const getVaccinesData30 = async () => {
+    const getVaccinesData = async () => {
         try {
             const vaccineDataResponse = await axios.get("https://disease.sh/v3/covid-19/vaccine/coverage?lastdays=1")
-            getVaccinesAdministeredTotal30(vaccineDataResponse.data)
+            getVaccinesAdministeredTotal(vaccineDataResponse.data)
         } catch (e) {
             console.error(e)
         }
     }
 
-    const getVaccinesAdministeredTotal30 = (myVaccineData) => {
+    const getVaccinesAdministeredTotal = (myVaccineData) => {
         const tempVaccineArray = Object.values(myVaccineData)
         const sumVaccines = tempVaccineArray.reduce((accum, curr) => {
             return accum + curr;
         }, 0)
         console.log(sumVaccines)
-        setTotalVaccines30(sumVaccines)
+        setTotalVaccines(sumVaccines)
     }
     
     const [token, setToken] = useState("AAAAAAAAAAAAAAAAAAAAAPw1MQEAAAAA%2BnKaVgyRfG4TfnfvC6Ss8boCUow%3Dj9CVdyRgXy52MbBgLW47gdxRtlF875buXqTHIiGBsq7FFMVRrb") 
@@ -65,7 +65,7 @@ export default function NewsFeed() {
     useEffect(() => {
         getWorldHistoricalData()
         getUnitedStatesHistoricalData()
-        getVaccinesData30()
+        getVaccinesData()
         getTweetsData(token)
     }, [])
 
@@ -81,7 +81,7 @@ export default function NewsFeed() {
 
                 </Col>
                 <Col md={4}>
-                    <DataCard title="Vaccines Administered" stat={totalVaccines30} style={{ width: "100px" }}></DataCard>
+                    <DataCard title="Vaccines Administered" stat={totalVaccines} style={{ width: "100px" }}></DataCard>
                     <Box className="hover" style={{ backgroundColor: "#d3d3d3;", minHeight: "200px;", height: "200px;" }}>
 
                         <img width="100%" height="100%" src={poster} alt="covid19_risk_img" />
