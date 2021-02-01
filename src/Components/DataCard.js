@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components"
+import styled from "styled-components"
 import numeral from "numeral"
 
 const Heading = styled.h2`

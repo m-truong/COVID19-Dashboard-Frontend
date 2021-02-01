@@ -6,12 +6,11 @@ import { Footer, Main, Button } from "./utilities"
 import VideosPage from "./RoutePages/VideosPage"
 import RegisterPage from "./RoutePages/RegisterPage"
 import LoginPage from "./RoutePages/LoginPage"
-import WorldwideDashboardPage from "./RoutePages/WorldwideDashboardPage"
-import StatesDashboardPage from "./RoutePages/StatesDashboardPage"
+import WorldDashboard from "./RoutePages/WorldDashboard"
+import StatesDashboard from "./RoutePages/StatesDashboard"
 import ReactAudioPlayer from "react-audio-player"
 import outbreak from "./Public/covid19_audio.mp3"
 import covid19 from "./Public/covid19_animation2.mp4"
-import axios from "axios"
 import NewsFeed from "./RoutePages/NewsFeed"
 
 function App() {
@@ -56,7 +55,7 @@ function App() {
             /> COVID-19 Information Portal
           </Navbar.Brand>
           <Link className="link-decoration" to="/">
-            New Cases <i className="fas fa-syringe"></i>
+            New Cases <i className="fas fa-head-side-mask"></i>
           </Link>
           <Link className="link-decoration" to="/world">
             World Map <i className="fas fa-globe-americas"></i>
@@ -89,12 +88,11 @@ function App() {
         </Navbar>
         <Main>
           <Switch>
-            <Route exact path="/world" component={WorldwideDashboardPage} />
-            <Route path="/states" component={StatesDashboardPage} />
+            <Route exact path="/world" component={WorldDashboard} />
+            <Route path="/states" component={StatesDashboard} />
             <Route path="/videos" component={VideosPage} />
             <Route path="/loginpage" component={LoginPage} />
             <Route path="/registerpage" component={RegisterPage} />
-            {/* <Route path="/product/:id" render={(routerProps) => { return <ShowPage routerProps={routerProps} /> }} /> */}
             <Route exact path="/" component={NewsFeed} />
           </Switch>
         </Main>
