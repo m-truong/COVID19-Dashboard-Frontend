@@ -4,7 +4,7 @@ import axios from "axios"
 import "../App.css"
 
 const RegisterPage = (props) => {
-    const url = "http://localhost:3000"
+    const url = "https://covid19-dashboard-backend-api.herokuapp.com/"
 
     const regNameInput = useRef(null);
     const regPasswordInput = useRef(null);

@@ -5,7 +5,7 @@ import axios from "axios"
 import "../App.css"
 
 const LoginPage = () => {
-    const url = "http://localhost:3000"
+    const url = "https://covid19-dashboard-backend-api.herokuapp.com/"
     const { userData, tokenData } = useContext(MyContext)
     const [userLoggedIn, setUserLoggedIn] = userData
     const [token, setToken] = tokenData
