@@ -11,7 +11,7 @@ app.use(express.static('build'))
 app.get('/tweets/getTweets', async (req, res) => {
   try {
     const tweets = await axios({
-      url: `https://api.twitter.com/1.1/search/tweets.json?q=covid&result_type=popular&count=4&lang=en`,
+      url: `https://api.twitter.com/1.1/search/tweets.json?q=%40cdcgov&result_type=popular&count=3&lang=en`,
       method: 'GET',
       headers: {
         Authorization: `Bearer AAAAAAAAAAAAAAAAAAAAAPw1MQEAAAAA%2BnKaVgyRfG4TfnfvC6Ss8boCUow%3Dj9CVdyRgXy52MbBgLW47gdxRtlF875buXqTHIiGBsq7FFMVRrb`,

@@ -5,7 +5,6 @@ import DailyCasesGraph from "../Components/DailyCasesGraph"
 import DataCard from "../Components/DataCard"
 import MyTweetComponent from "../Components/MyTweetComponent"
 import poster from "../assets/covid19_risk.png"
-import Tweet from 'react-tweet'
 import axios from "axios"
 
 export default function NewsFeed() {
