@@ -4,7 +4,7 @@ import ReactPlayer from "react-player"
 
 function VideosPage() {
     return (
-        <Container fluid>
+        <Container fluid className="margin-top">
             <Title>COVID-19 Videos</Title>
             <Row>
                 <Col>

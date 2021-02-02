@@ -80,7 +80,7 @@ export default function StatesDashboard(props) {
     }, [])
 
     return (
-        <Container fluid>
+        <Container fluid className="margin-top">
             <Title>COVID-19 United States Dashboard </Title>
             <Row className="justify-content-around">
                 <Col className="col-margin-top" md={2}>

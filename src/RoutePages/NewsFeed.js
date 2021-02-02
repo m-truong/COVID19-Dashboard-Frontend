@@ -50,7 +50,7 @@ export default function NewsFeed() {
     }, [])
 
     return (
-        <Container fluid>
+        <Container fluid className="margin-top">
             <Row>
                 <Col md={4}>
                     <DailyCasesGraph title="Worldwide Daily New Cases" graphData={worldHistoricalCases} />

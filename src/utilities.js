@@ -129,6 +129,7 @@ export const Title = styled.h1`
     text-align: center;
     font-size: 3rem;
     font-weight: bold;
+    margin-bottom: 1rem;
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
 `;
