@@ -12,7 +12,7 @@ export default function StatesDashboard(props) {
     const [deathsTableData, setDeathsTableData] = useState([])
     const [recoveredTableData, setRecoveredTableData] = useState([])
 
-    // cause it was a let variable it wasn't updating the state
+    // React requires useState
     const [statesLatLongData, setStatesLatLongData] = useState([])
 
     const getUnitedStatesData = async () => {
@@ -80,23 +80,23 @@ export default function StatesDashboard(props) {
     }, [])
 
     return (
-        <Container fluid>
+        <Container fluid className="margin-top">
             <Title>COVID-19 United States Dashboard </Title>
             <Row className="justify-content-around">
                 <Col className="col-margin-top" md={2}>
                     <DataCard title={"Cases"} stat={usData.cases} />
-                    <StatsTable name="States" region={casesTableData} type="Cases" />
+                    <StatsTable name="States" region={casesTableData} type="Cases" className="hover"/>
                 </Col>
                 <Col md={6}>
                     <CovidLiveMap covidCircleData={statesLatLongData} type="United States"/>
                 </Col>
                 <Col className="col-margin-top" md={2}>
                     <DataCard title={"Deaths"} stat={usData.deaths} />
-                    <StatsTable name="States" region={deathsTableData} type="Deaths" />
+                    <StatsTable name="States" region={deathsTableData} type="Deaths" className="hover"/>
                 </Col>
                 <Col  className="col-margin-top" md={2}>
                     <DataCard title={"Recovered"} stat={usData.recovered} />
-                    <StatsTable name="States" region={recoveredTableData} type="Recovered" />
+                    <StatsTable name="States" region={recoveredTableData} type="Recovered" className="hover"/>
                 </Col>
             </Row>
         </Container>

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react"
 import { FormBox, Input, Button } from "../utilities"
 import axios from "axios"
 import "../App.css"

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react"
+import { useState, useEffect } from "react"
 import { Route, Link, Switch } from "react-router-dom"
 import { MyContext } from "./Components/Context"
 import { Navbar } from "react-bootstrap"
@@ -55,7 +55,7 @@ function App() {
             /> COVID-19 Information Portal
           </Navbar.Brand>
           <Link className="link-decoration" to="/">
-            New Cases <i className="fas fa-head-side-mask"></i>
+            News Feed <i className="fas fa-head-side-mask"></i>
           </Link>
           <Link className="link-decoration" to="/world">
             World Map <i className="fas fa-globe-americas"></i>
@@ -70,17 +70,17 @@ function App() {
             userLoggedIn
               ? (
                 <>
-                  <span className="username">Welcome Back {userLoggedIn}! <i class="fas fa-user"></i></span>
+                  <span className="username">Welcome Back {userLoggedIn}! <i className="fas fa-user"></i></span>
                   <Button href="/" onClick={logOutHandler}> Log Out </Button>
                 </>
               )
               : (
                 <>
                   <Link className="link-decoration" to="/loginpage">
-                    Login <i class="fas fa-sign-in-alt"></i>
+                    Login <i className="fas fa-sign-in-alt"></i>
                   </Link>
                   <Link className="link-decoration" to="/registerpage">
-                    Sign-Up <i class="fas fa-registered"></i>
+                    Sign-Up <i className="fas fa-registered"></i>
                   </Link>
                 </>
               )

@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { Line, prepareChartData } from "react-chartjs-2"
+import { Line } from "react-chartjs-2"
 import { options, Subheading, Box } from "../utilities"
-import axios from 'axios'
-import numeral from "numeral"
 
 
 export default function DailyCasesGraph({ title, graphData }) {
-    // const [] = useState([])
-
     return (
         // fixes height growth issue
         <Box className="hover" style={{"position" : "relative", "display" : "block"}}>

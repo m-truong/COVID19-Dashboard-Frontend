@@ -57,7 +57,7 @@ export default function WorldDashboard(props) {
     }, [])
 
     return (
-        <Container fluid>
+        <Container fluid className="margin-top">
             <Title>COVID-19 Worldwide Dashboard </Title>
             <Row className="justify-content-around">
                 <Col className="col-margin-top" md={2}>
