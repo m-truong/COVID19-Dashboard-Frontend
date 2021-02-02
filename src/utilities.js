@@ -384,19 +384,3 @@ export const tweetData = [
         }
     }
 ]
-
-// const [token, setToken] = useState("AAAAAAAAAAAAAAAAAAAAAPw1MQEAAAAA%2BnKaVgyRfG4TfnfvC6Ss8boCUow%3Dj9CVdyRgXy52MbBgLW47gdxRtlF875buXqTHIiGBsq7FFMVRrb") 
-
-// const getTweetsData = async (token) => {
-//     try {
-//         const responseTweetData = await fetch("https://api.twitter.com/1.1/search/tweets.json?q=covid&result_type=popular&count=5&lang=en", {
-//             headers: {
-//                 "Authorization": `Bearer ${token}`,
-//             }
-//         })
-//         const responseJSON = await responseTweetData.json();
-//         console.log(responseJSON)
-//     } catch (e) {
-//         console.error(e)
-//     }
-// }

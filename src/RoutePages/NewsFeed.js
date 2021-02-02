@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import { Box, prepareChartData, Title } from "../utilities"
 import DailyCasesGraph from "../Components/DailyCasesGraph"
 import DataCard from "../Components/DataCard"
-import poster from "../public/covid19_risk.png"
+import poster from "../assets/covid19_risk.png"
 import Tweet from 'react-tweet'
 import axios from "axios"
 
@@ -12,12 +12,13 @@ export default function NewsFeed() {
     const [unitedStatesHistoricalCases, setUSHistoricalCases] = useState([])
     const [totalVaccines, setTotalVaccines] = useState([])
     const [tweetsData, setTweetsData] = useState([])
+
     const getTweetsData = async () => {
         try {
             const tweets = await axios.get("/tweets/getTweets")
             setTweetsData(tweets.data.statuses)
-        } catch(error){
-          console.error(error)
+        } catch (error) {
+            console.error(error)
         }
     }
     const getVaccinesData = async () => {
