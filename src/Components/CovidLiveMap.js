@@ -1,6 +1,6 @@
-import styled from "styled-components"
 import { MapContainer, TileLayer } from "react-leaflet"
 import { drawCovidCircles } from "../utilities"
+import styled from "styled-components"
 
 const MapBorder = styled.div`
     height: 650px;

@@ -260,7 +260,6 @@ export const options = {
     maintainAspectRatio: true,
     // fixes growing height chart 
     responsive: true,
-    // doesn't display legend above
     legend: {
         display: false,
     },
@@ -293,3 +292,110 @@ export const prepareChartData = (historicalData) => {
     }
     return chartData;
 }
+
+export const tweetData = [
+    {
+        id_str: '1356278427331010566',
+        user: {
+            name: 'Alice Miranda Ollstein',
+            screen_name: 'AliceOllstein',
+            profile_image_url: "http://pbs.twimg.com/profile_images/1225173182581112833/uHZWRT1t_normal.jpg"
+        },
+        text: 'NEW: Biden health officials just announced the approval of an over-the-counter Covid test that gives results in 15… https://t.co/zn6mAFJCp0',
+        created_at: 'Mon Feb 01 16:29:10 +0000 2021',
+        favorite_count: '22427',
+        retweet_count: '4983',
+        entities: {
+            urls: [
+                {
+                    "url": "https://t.co/oaoBtKShKO",
+                    "expanded_url": "https://twitter.com/i/web/status/1355801956971900928",
+                    "display_url": "twitter.com/i/web/status/1…",
+                    "indices": [
+                        116,
+                        139
+                    ]
+                }
+            ],
+        }
+    },
+    {
+        id_str: '1356370810240462850',
+        user: {
+            name: 'Manu Raju',
+            screen_name: 'mkraju',
+            profile_image_url: 'http://abs.twimg.com/images/themes/theme6/bg.gif',
+            description: "Chief Congressional Correspondent, @CNN. Roaming the Capitol halls, covering the Hill and politics. Die-hard Chicago sports fan. Wisconsin Badger for life."
+        },
+        text: 'Fauci on @CNNSitRoom says that people who have had covid could still get infected by the South African variant, say… https://t.co/vndTeTrmba',
+        created_at: 'Mon Feb 01 22:36:15 +0000 2021',
+        favorite_count: '886',
+        retweet_count: '306',
+        entities: {
+            urls: [
+                {
+                    "url": "https://t.co/vtt0v8C3y8",
+                    "expanded_url": "http://www.facebook.com/mkraju00",
+                    "display_url": "facebook.com/mkraju00",
+                    "indices": [
+                        0,
+                        23
+                    ]
+                }
+            ],
+        }
+    },
+    {
+        id_str: '1356147788963336192',
+        user: {
+            name: "NHS England and NHS Improvement",
+            screen_name: 'NHSEngland',
+            profile_image_url: 'https://abs.twimg.com/images/themes/theme1/bg.png',
+            description: "We lead and support the NHS in England to deliver improved care for patients."
+        },
+        text: 'The NHS has offered the #COVIDVaccine to residents at every eligible care home in England.\n\nIn a major milestone fo… https://t.co/QHln2kspdA',
+        created_at: "Mon Feb 01 07:50:03 +0000 2021",
+        favorite_count: '243',
+        retweet_count: '74',
+        entities: {
+            "hashtags": [
+                {
+                    "text": "COVIDVaccine",
+                    "indices": [
+                        24,
+                        37
+                    ]
+                }
+            ],
+            "symbols": [],
+            "user_mentions": [],
+            "urls": [
+                {
+                    "url": "https://t.co/QHln2kspdA",
+                    "expanded_url": "https://twitter.com/i/web/status/1356147788963336192",
+                    "display_url": "twitter.com/i/web/status/1…",
+                    "indices": [
+                        117,
+                        140
+                    ]
+                }
+            ]
+        }
+    }
+]
+
+// const [token, setToken] = useState("AAAAAAAAAAAAAAAAAAAAAPw1MQEAAAAA%2BnKaVgyRfG4TfnfvC6Ss8boCUow%3Dj9CVdyRgXy52MbBgLW47gdxRtlF875buXqTHIiGBsq7FFMVRrb") 
+
+// const getTweetsData = async (token) => {
+//     try {
+//         const responseTweetData = await fetch("https://api.twitter.com/1.1/search/tweets.json?q=covid&result_type=popular&count=5&lang=en", {
+//             headers: {
+//                 "Authorization": `Bearer ${token}`,
+//             }
+//         })
+//         const responseJSON = await responseTweetData.json();
+//         console.log(responseJSON)
+//     } catch (e) {
+//         console.error(e)
+//     }
+// }
