@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import { Box, prepareChartData, tweetData, Title } from "../utilities"
+import { Box, prepareChartData, Title } from "../utilities"
 import DailyCasesGraph from "../Components/DailyCasesGraph"
 import DataCard from "../Components/DataCard"
-import poster from "../Public/covid19_risk.png"
+import poster from "../public/covid19_risk.png"
 import Tweet from 'react-tweet'
 import axios from "axios"
 
@@ -12,7 +12,14 @@ export default function NewsFeed() {
     const [unitedStatesHistoricalCases, setUSHistoricalCases] = useState([])
     const [totalVaccines, setTotalVaccines] = useState([])
     const [tweetsData, setTweetsData] = useState([])
-
+    const getTweetsData = async () => {
+        try {
+            const tweets = await axios.get("/tweets/getTweets")
+            setTweetsData(tweets.data.statuses)
+        } catch(error){
+          console.error(error)
+        }
+    }
     const getVaccinesData = async () => {
         try {
             const vaccineDataResponse = await axios.get("https://disease.sh/v3/covid-19/vaccine/coverage?lastdays=1")
@@ -46,7 +53,7 @@ export default function NewsFeed() {
         getWorldHistoricalData()
         getUnitedStatesHistoricalData()
         getVaccinesData()
-        // getTweetsData(token)
+        getTweetsData()
     }, [])
 
     return (
@@ -58,7 +65,7 @@ export default function NewsFeed() {
                 </Col>
                 <Col md={4}>
                     <Title>Twitter Feed</Title>
-                    {tweetData.map((tweet, idx) => {
+                    {tweetsData.map((tweet, idx) => {
                         return (
                             <Box key={idx} className="hover">
                                 <Tweet data={tweet} style={{ borderRadius: "2rem;", padding: "2rem;" }} />
@@ -76,4 +83,3 @@ export default function NewsFeed() {
         </Container>
     )
 }
-

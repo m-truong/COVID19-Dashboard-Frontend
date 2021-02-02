@@ -9,8 +9,8 @@ import LoginPage from "./RoutePages/LoginPage"
 import WorldDashboard from "./RoutePages/WorldDashboard"
 import StatesDashboard from "./RoutePages/StatesDashboard"
 import ReactAudioPlayer from "react-audio-player"
-import outbreak from "./Public/covid19_audio.mp3"
-import covid19 from "./Public/covid19_animation2.mp4"
+import outbreak from "./public/covid19_audio.mp3"
+import covid19 from "./public/covid19_animation2.mp4"
 import NewsFeed from "./RoutePages/NewsFeed"
 
 function App() {
