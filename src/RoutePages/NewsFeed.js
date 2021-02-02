@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import { Box, prepareChartData, Title } from "../utilities"
 import DailyCasesGraph from "../Components/DailyCasesGraph"
 import DataCard from "../Components/DataCard"
+import MyTweetComponent from "../Components/MyTweetComponent"
 import poster from "../assets/covid19_risk.png"
 import Tweet from 'react-tweet'
 import axios from "axios"
@@ -69,7 +70,7 @@ export default function NewsFeed() {
                     {tweetsData.map((tweet, idx) => {
                         return (
                             <Box key={idx} className="hover">
-                                <Tweet data={tweet} style={{ borderRadius: "2rem;", padding: "2rem;" }} />
+                                <MyTweetComponent tweetData={tweet}  />
                             </Box>
                         )
                     })}
