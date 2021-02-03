@@ -1,6 +1,8 @@
 if (process.env.NODE_ENV === 'development') {
+  console.log("hi")
   require('dotenv').config()
 }
+console.log(process.env.BEARER_TOKEN)
 // express server to deploy
 // server.js file in root of your frontend
 const express = require('express')
@@ -18,7 +20,7 @@ app.get('/tweets/getTweets', async (req, res) => {
       url: `https://api.twitter.com/1.1/search/tweets.json?q=%40cdcgov&result_type=popular&count=3&lang=en`,
       method: 'GET',
       headers: {
-        Authorization: `Bearer AAAAAAAAAAAAAAAAAAAAAPw1MQEAAAAA%2BnKaVgyRfG4TfnfvC6Ss8boCUow%3Dj9CVdyRgXy52MbBgLW47gdxRtlF875buXqTHIiGBsq7FFMVRrb`,
+        Authorization: `Bearer ${BEARER_TOKEN}`,
         'Content-Type': 'application/json',
       },
     })
