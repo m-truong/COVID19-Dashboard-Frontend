@@ -1,8 +1,4 @@
-if (process.env.NODE_ENV === 'development') {
-  console.log("hi")
-  require('dotenv').config()
-}
-console.log(process.env.BEARER_TOKEN)
+require('dotenv').config()
 // express server to deploy
 // server.js file in root of your frontend
 const express = require('express')
