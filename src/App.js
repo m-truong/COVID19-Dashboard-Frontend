@@ -10,10 +10,10 @@ import WorldDashboard from "./RoutePages/WorldDashboard"
 import StatesDashboard from "./RoutePages/StatesDashboard"
 import ReactAudioPlayer from "react-audio-player"
 import outbreak from "./assets/covid19_audio.mp3"
-import covid19 from "./assets/covid19_animation2.mp4"
 import NewsFeed from "./RoutePages/NewsFeed"
 
 function App() {
+  const covid19 = "https://www.dropbox.com/s/mh94qwvqf50zcrz/covid19_animation2.mp4?dl=1"
   const [userLoggedIn, setUserLoggedIn] = useState("")
   const [token, setToken] = useState("")
 
