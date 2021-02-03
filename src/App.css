@@ -1,6 +1,84 @@
 * {
-  margin: 0; 
-  padding: 0; 
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  background-color: whitesmoke;
+  font-family: "Spartan", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.username {
+  color: white;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+/* .username:hover {
+  color: green;
+} */
+
+/* Hyperlink Styles */
+.link-decoration {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.2rem;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.link-decoration:hover {
+  color: red;
+  text-decoration: none;
+}
+
+.col-margin-top {
+  margin-top: 3rem;
+}
+
+/* React-Leaflet Map Styles */
+.map-styles {
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* COVID-19 Statistics Table Styles */
+.table-styles {
+  margin-top: 20px;
+  border-radius: 0.6rem;
+  overflow: scroll;
+  height: 400px;
+  background-color: #2e2f2f;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.table-styles td {
+  padding: 0.5rem;
+}
+
+/* Button Extra Styles */
+button:hover {
+  background-color: crimson;
+  border: 0.1rem #404040 solid;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.hover:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.margin-top {
+  margin-top: 1.5rem;
 }
