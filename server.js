@@ -1,9 +1,13 @@
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config()
+}
 // express server to deploy
 // server.js file in root of your frontend
 const express = require('express')
 const axios = require('axios')
 const app = express()
 const path = require('path')
+const BEARER_TOKEN = process.env.BEARER_TOKEN
 const PORT = process.env.PORT || 8001
 app.use(express.json())
 app.use(express.static('build'))
