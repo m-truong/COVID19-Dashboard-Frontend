@@ -4,10 +4,11 @@ import { Box, prepareChartData, Title } from "../utilities"
 import DailyCasesGraph from "../Components/DailyCasesGraph"
 import DataCard from "../Components/DataCard"
 import MyTweetComponent from "../Components/MyTweetComponent"
-import poster from "../assets/covid19_risk.png"
+// import poster from "../assets/covid19_risk.png"
 import axios from "axios"
 
 export default function NewsFeed() {
+    const poster = "https://www.dropbox.com/s/rl4qqrtn6upk2su/covid19_risk.png?dl=1"
     const [worldHistoricalCases, setWorldHistoricalCases] = useState([])
     const [unitedStatesHistoricalCases, setUSHistoricalCases] = useState([])
     const [totalVaccines, setTotalVaccines] = useState([])
